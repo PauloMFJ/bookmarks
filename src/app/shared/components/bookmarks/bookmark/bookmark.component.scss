@@ -3,10 +3,11 @@
 :host {
   display: block;
 
-  .bookmark {
-    --border-opacity: .5;
-    --box-shadow-opacity: .05;
-    --box-shadow-position: 2px;
+  // TODO: Extract card out into its own resuable component
+  .card {
+    --border-opacity: .5; /* Used to dynamically change border opacity */
+    --box-shadow-opacity: .05; /* Used to dynamically change box-shadow opacity */
+    --box-shadow-position: 2px; /* Used to dynamically change box-shadow top/left positions */
     align-items: center;
     border-left: 12px solid rgba($primary, var(--border-opacity));
     border-radius: $border-radius;

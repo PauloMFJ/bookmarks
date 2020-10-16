@@ -10,11 +10,12 @@ import { AppComponent } from './app.component';
 import { LogoComponent } from './shared/components/logo/logo.component';
 import { OverviewComponent } from './shared/views/overview/overview.component';
 import { ResultComponent } from './shared/views/result/result.component';
-import { BookmarkComponent } from './shared/components/bookmark/bookmark.component';
-import { BookmarksComponent } from './shared/components/bookmarks/bookmarks.component';
+import { BookmarkComponent } from './shared/components/bookmarks/bookmark/bookmark.component';
+import { BookmarksComponent } from './shared/components/bookmarks/bookmarks/bookmarks.component';
 import { SearchBarComponent } from './shared/components/search-bar/search-bar.component';
 import { PaginationComponent } from './shared/components/pagination/pagination.component';
 import { ButtonComponent } from './shared/components/button/button.component';
+import { BookmarkFormComponent } from './shared/components/bookmarks/bookmark-form/bookmark-form.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ButtonComponent } from './shared/components/button/button.component';
     BookmarksComponent,
     SearchBarComponent,
     PaginationComponent,
-    ButtonComponent
+    ButtonComponent,
+    BookmarkFormComponent
   ],
   imports: [
     BrowserModule,
