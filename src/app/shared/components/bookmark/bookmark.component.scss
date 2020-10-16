@@ -4,33 +4,27 @@
   display: block;
 
   .bookmark {
-    // Dynamic var properties
     --border-opacity: .5;
-    --box-shadow-position: 2px;
     --box-shadow-opacity: .05;
-    // Rgba() used with var to dynamically change border opacity
+    --box-shadow-position: 2px;
+    align-items: center;
     border-left: 12px solid rgba($primary, var(--border-opacity));
     border-radius: $border-radius;
-    // Var's used to dynamically change box-shadow positioning and opacity
     box-shadow: var(--box-shadow-position) var(--box-shadow-position) 8px rgba($black, var(--box-shadow-opacity));
+    color: inherit; /* Inherit colour to prevent default hyperlink colour */
     cursor: pointer;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
     height: 48px;
+    justify-content: space-between;
+    outline: none; /* Remove default browser focus behaviour */
     padding: 0 16px;
-    // Remove default hyperlink text underline/colour
-    text-decoration: none;
-    color: inherit;
-    // Remove default browser focus behaviour
-    outline: none;
+    text-decoration: none; /* Remove default hyperlink decorations */
 
     .details {
-      // Hide content on overflow
-      overflow: hidden;
+      overflow: hidden; /* Hide content on overflow */
 
       > * {
-        // Show ellipsis on overflow
+        /* Show ellipsis on overflow */
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -42,25 +36,22 @@
 
       .url {
         font-size: 12px;
+        height: 0; /* Used to hide url */
         line-height: 16px;
-        // Hide url
-        height: 0;
-        opacity: 0;
+        opacity: 0; /* Used to fade url in */
       }
     }
 
-    // On hover/tab events, trigger bookmark animations
     &:hover,
     &:focus {
       --border-opacity: 1;
-      --box-shadow-position: 4px;
       --box-shadow-opacity: .1;
+      --box-shadow-position: 4px;
       transform: translateY(-4px);
 
      .details .url {
-        // Show url
-        height: 16px;
-        opacity: 1;
+        height: 16px; /* Transform url in */
+        opacity: 1; /* Fade url in */
       }
     }
   }

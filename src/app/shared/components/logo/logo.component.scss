@@ -2,14 +2,14 @@
 
 #logo {
   --margin: 64px;
+  cursor: pointer;
+  left: var(--margin);
   position: fixed;
   top: var(--margin);
-  left: var(--margin);
-  cursor: pointer;
 }
 
 @include media-breakpoint-below(md) {
   #logo {
-    --margin: 32px;
+    --margin: 32px; /* Reduce logo margin on smaller screens */
   }
 }

@@ -2,7 +2,7 @@
 :host {
   display: block;
 
-  // Set margin bottom on all child bookmarks par last one
+  /* Apply to all, expet last child */
   > *:not(:last-child) {
     margin-bottom: 16px;
   }

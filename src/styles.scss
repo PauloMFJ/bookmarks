@@ -11,10 +11,10 @@
 
 // Defaults
 html, body {
+  -webkit-font-smoothing: antialiased;
   color: $black;
   font-family: 'Open Sans', Helvetica, sans-serif;
   font-size: 16px;
-  -webkit-font-smoothing: antialiased;
   height: 100%;
   width: 100%;
 }

@@ -1,28 +1,49 @@
 
 input {
   background: $light;
-  // Remove default input border;
-  border: 0;
   border-radius: $border-radius;
+  border: 0; /* Remove default input border */
   color: $black;
   display: block;
   height: 32px;
+  outline: none; /* Remove default browser focus behaviour */
   padding: 0 16px;
   width: 100%;
-  // Remove default browser focus behaviour
-  outline: none;
 
-  // Update default placeholder text
+  /* Update default placeholder text colour */
   &::placeholder {
     color: $dark;
-    // Colour transition
-    transition: color .2s ease-in-out;
-  }
+    transition: color .2s ease-in-out; /* Animate colour events */
 
-  // On hover, darken text
-  &:hover {
-    &::placeholder {
+    &:hover,
+    &:focus {
       color: $black;
     }
   }
+}
+
+.button {
+  cursor: pointer;
+  outline: none;
+  white-space: nowrap;
+  border-radius: 20px;
+  padding: 8px 32px;
+  border: 0;
+  background: $light;
+  color: $dark;
+    transition: all ease-in-out $transition-speed;
+
+    &:not(:disabled) {
+      &:hover,
+      &:focus {
+      background: #ccc;
+    }
+  }
+
+  &:disabled {
+        background-color: $light !important;
+        border-color: $light !important;
+        color: $white !important;
+        cursor: default;
+    }
 }
