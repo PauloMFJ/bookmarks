@@ -1,6 +1,7 @@
 {
   "name": "bookmarks",
   "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
@@ -51,7 +52,7 @@
     "typescript": "~3.5.3"
   },
   "engines": {
-    "node": "13.0.1",
+    "node": "14.0.0",
     "npm": "6.12.0"
   }
 }
