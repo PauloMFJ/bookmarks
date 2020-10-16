@@ -10,6 +10,7 @@ input {
   outline: none; /* Remove default browser focus behaviour */
   padding: 0 16px;
   width: 100%;
+  font-size: 14px;
 
   /* Update default placeholder text colour */
   &::placeholder {
