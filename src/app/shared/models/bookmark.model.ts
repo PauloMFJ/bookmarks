@@ -1,6 +1,6 @@
 
 /**
- * Model class used to define an individual bookmark object.
+ * Model class used to define a unique bookmark object.
  */
 export class Bookmark {
 
@@ -10,10 +10,11 @@ export class Bookmark {
     isFavourite: boolean;
 
     /**
-     * @param pk - A unique bookmark identifier.
-     * @param url - A destination url of bookmark.
-     * @param name - A custom url nickname.
-     * @param isFavourite - Optional parameter to define if
+     * Contructor used to create new bookmark object.
+     * @param {number}  pk          A unique bookmark identifer.
+     * @param {string}  url         A destination url of bookmark.
+     * @param {string}  name        A custom url nickname.
+     * @param {boolean} isFavourite Optional parameter to define if
      *     bookmark has been favourited or not.
      */
     constructor(pk: number, url: string, name: string, isFavourite?: boolean) {

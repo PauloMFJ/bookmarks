@@ -1,0 +1,28 @@
+
+input {
+  background: $light;
+  // Remove default input border;
+  border: 0;
+  border-radius: $border-radius;
+  color: $black;
+  display: block;
+  height: 32px;
+  padding: 0 16px;
+  width: 100%;
+  // Remove default browser focus behaviour
+  outline: none;
+
+  // Update default placeholder text
+  &::placeholder {
+    color: $dark;
+    // Colour transition
+    transition: color .2s ease-in-out;
+  }
+
+  // On hover, darken text
+  &:hover {
+    &::placeholder {
+      color: $black;
+    }
+  }
+}

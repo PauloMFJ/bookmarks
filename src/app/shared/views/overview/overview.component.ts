@@ -21,4 +21,12 @@ export class OverviewComponent implements OnInit {
 
   ngOnInit() { }
 
+  /**
+   * Method to handle and search bookmarks by search change events.
+   * @param {string} searchTerm Search term to search bookmarks with.
+   */
+  onSearchChanged(searchTerm: string) {
+    console.log(searchTerm);
+  }
+
 }

@@ -1,0 +1,8 @@
+<input [(ngModel)]="searchTerm"
+       (ngModelChange)="onSearchChanged($event)"
+       type="text"
+       class="search-bar transition"
+       [placeholder]="placeholder"
+       aria-label="Search"
+       autocomplete="off"
+       tabindex="0">
