@@ -16,41 +16,55 @@
   transition: all $transition-speed ease-in-out;
   white-space: nowrap;
 
-  /* Button without a background */
+  /* Clear button without a background */
   &.clear {
-    &:hover,
-    &:focus {
-      background: $light;
+    /* If not disabled, show hover/focus state */
+    &:not(.disabled) {
+      &:hover,
+      &:focus {
+        background: $light;
+      }
     }
   }
 
-  /* Button with light background */
+  /* Light button with light background */
   &.light {
     background: $light;
 
-    &:hover,
-    &:focus {
-      background: $gray;
+    /* If not disabled, show hover/focus state */
+    &:not(.disabled) {
+      &:hover,
+      &:focus {
+        background: $gray;
+      }
     }
   }
 
-  /* Button with active state triggered */
-  &.clear,
-  &.light {
-    &.active {
+  /* If not disabled, show button with active state triggered */
+  &:not(.disabled).active {
+    &.clear,
+    &.light {
       background: $primary;
       color: $white;
     }
   }
 
-  /* Button with red background */
+  /* Danger button with red background */
   &.danger {
     background: $red;
     color: $white;
 
-    &:hover,
-    &:focus {
-      opacity: .5;
+    /* If not disabled, show hover/focus state */
+    &:not(.disabled) {
+      &:hover,
+      &:focus {
+        opacity: .5;
+      }
     }
+  }
+
+  /* If disabled, show disabled button */
+  &.disabled {
+    opacity: .25;
   }
 }

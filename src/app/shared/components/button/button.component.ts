@@ -30,16 +30,31 @@ export class ButtonComponent {
   @Input() active: boolean;
 
   /**
-   * Event emitter used to listen to click and keyup.enter events.
-   * @param {string} pageChange Emits on selected event.
+   * If button is disabled (true), or not (false).
+   * @type {boolean}
    */
-  @Output() clicked = new EventEmitter();
+  @Input() disabled: boolean;
+
+  /**
+   * Tabindex used to allow user to change button ordering.
+   * @type {number}
+   */
+  @Input() tabIndex: number;
+
+  /**
+   * Event emitter used to listen to click and keyup.enter events.
+   * @param {boolean} clicked Emits on click event.
+   */
+  @Output() clicked = new EventEmitter<boolean>();
 
   constructor() { }
 
   /**
-   * Method to emit a (clicked) event.
+   * Method to emit a (clicked) event, ignored if disabled is true.
    */
-  onClick = () => this.clicked.emit();
-
+  onClick() {
+    if (!this.disabled) {
+      this.clicked.emit(true);
+    }
+  }
 }
