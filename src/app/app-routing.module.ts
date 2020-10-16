@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BookmarkComponent } from './shared/components/bookmark/bookmark.component';
-import { OverviewComponent } from './shared/components/overview/overview.component';
+import { OverviewComponent } from '@app/shared/views/overview/overview.component';
+import { ResultComponent } from '@app/shared/views/result/result.component';
 
 const routes: Routes = [
     {
-        path: 'bookmark',
+        path: 'result',
         pathMatch: 'full',
-        component: BookmarkComponent,
+        component: ResultComponent,
     },
     // If path doesnt match bookmark page, fallback to overview
     {
