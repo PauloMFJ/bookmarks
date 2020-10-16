@@ -1,12 +1,12 @@
-<div class="bookmark transition"
-     (click)="clicked()"
-     (keyup.enter)="clicked()"
-     tabindex="0">
-  <div>
+<a class="bookmark transition"
+   target="_blank"
+   href="{{ bookmark.url }}"
+   tabindex="0">
+  <div class="details">
     <h4>{{ bookmark.name }}</h4>
     <div class="url transition">{{ bookmark.url }}</div>
   </div>
   <div>
 
   </div>
-</div>
+</a>

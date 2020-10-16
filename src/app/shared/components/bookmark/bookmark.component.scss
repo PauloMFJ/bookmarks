@@ -4,42 +4,58 @@
   display: block;
 
   .bookmark {
-    // Box shadow properties
-    --position: 2px;
-    --opacity: .05;
-    border-left: 12px solid $primary;
+    // Dynamic var properties
+    --border-opacity: .5;
+    --box-shadow-position: 2px;
+    --box-shadow-opacity: .05;
+    // Rgba() used with var to dynamically change border opacity
+    border-left: 12px solid rgba($primary, var(--border-opacity));
     border-radius: $border-radius;
-    box-shadow: var(--position) var(--position) 8px rgba($black, var(--opacity));
+    // Var's used to dynamically change box-shadow positioning and opacity
+    box-shadow: var(--box-shadow-position) var(--box-shadow-position) 8px rgba($black, var(--box-shadow-opacity));
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 48px;
+    padding: 0 16px;
+    // Remove default hyperlink text underline/colour
+    text-decoration: none;
+    color: inherit;
     // Remove default browser focus behaviour
     outline: none;
-    padding: 0 16px;
 
-    // Show ellipsis on text overflow
-    h4, .url {
+    .details {
+      // Hide content on overflow
       overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+
+      h4,
+      .url {
+        // Show ellipsis on overflow
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .url {
+        font-size: 12px;
+        line-height: 16px;
+        // Hide url
+        height: 0;
+        opacity: 0;
+      }
     }
 
-    .url {
-      font-size: 12px;
-      line-height: 16px;
-      height: 0;
-      opacity: 0;
-    }
-
-    &:hover, &:focus {
-      // On active, transform bookmark up, and update box-shadow properties
-      --position: 4px;
-      --opacity: .1;
+    // On hover or tab events, trigger bookmark animations
+    &:hover,
+    &:focus {
+      --border-opacity: 1;
+      --box-shadow-position: 4px;
+      --box-shadow-opacity: .1;
       transform: translateY(-4px);
 
-     .url {
+     .details .url {
+        // Show url
         height: 16px;
         opacity: 1;
       }
