@@ -29,12 +29,15 @@
       // Hide content on overflow
       overflow: hidden;
 
-      h4,
-      .url {
+      > * {
         // Show ellipsis on overflow
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+      }
+
+      .name {
+        font-weight: bold;
       }
 
       .url {

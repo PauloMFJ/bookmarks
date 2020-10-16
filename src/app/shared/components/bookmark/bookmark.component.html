@@ -1,9 +1,10 @@
 <a class="bookmark transition"
    target="_blank"
    href="{{ bookmark.url }}"
+   rel="noreferrer"
    tabindex="0">
   <div class="details">
-    <h4>{{ bookmark.name }}</h4>
+    <span class="name">{{ bookmark.name }}</span>
     <div class="url transition">{{ bookmark.url }}</div>
   </div>
   <div>
