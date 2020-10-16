@@ -1,0 +1,48 @@
+
+// Get Shared Variables
+@import 'assets/styles/shared';
+
+// Reset
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// Defaults
+html, body {
+  color: $black;
+  font-family: $open-sans;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  width: 100%;
+}
+
+h1, h2, h3, h4 {
+  font-family: $roboto;
+  font-weight: normal;
+  margin: 0 0 16px 0;
+}
+
+h1, h2 {
+  font-weight: 900;
+}
+
+h1 {
+  font-size: 5vw;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+// Transitions
+.transition {
+  transition: all .2s ease-in-out;
+}

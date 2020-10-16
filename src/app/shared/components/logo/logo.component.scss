@@ -1,0 +1,15 @@
+@import '~src/assets/styles/media-queries';
+
+#logo {
+  --margin: 64px;
+  position: fixed;
+  top: var(--margin);
+  left: var(--margin);
+  cursor: pointer;
+}
+
+@include media-breakpoint-below(md) {
+  #logo {
+    --margin: 32px;
+  }
+}
