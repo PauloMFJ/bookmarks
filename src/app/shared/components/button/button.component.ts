@@ -18,10 +18,21 @@ export class ButtonComponent {
    *
    *  - 'clear'.
    *  - 'light'.
+   *  - 'white'.
    *  - 'danger'
    * @type {string}
    */
-  @Input() type: 'clear' | 'light' = 'clear';
+  @Input() type: 'clear' | 'white' | 'light' | 'danger' = 'clear';
+
+  /**
+   * Button size, DEFAULTS to 'md', supports following strings:
+   *
+   *  - 'md'.
+   *  - 'sm'.
+   * @type {string}
+   */
+  @Input() size: 'md' | 'sm' = 'md';
+
 
   /**
    * If button is active (true), or not (false).

@@ -14,4 +14,11 @@ export class BookmarkFormComponent implements OnInit {
 
   ngOnInit() { }
 
+  /**
+   * Method used to cancel this form.
+   */
+  cancel() {
+    console.log('Cancel!');
+  }
+
 }

@@ -6,31 +6,38 @@
   cursor: pointer;
   display: flex;
   font-family: $roboto;
-  height: $input-size;
   justify-content: center;
-  min-width: $input-size; /* Keep button width same or larger than height */
   outline: none; /* Remove default browser focus behaviour */
   padding: 0 8px;
   text-decoration: none; /* Remove default hyperlink decorations */
   transition: all $transition-speed ease-in-out;
   white-space: nowrap;
 
-  /* Clear button without a background */
-  &.clear {
-    /* If not disabled, show hover/focus state */
-    &:not(.disabled) {
-      &:hover,
-      &:focus {
-        background: $light;
-      }
+  /* MEDIUM size buttons */
+  &.md {
+    height: $input-size;
+    min-width: $input-size; /* Allow button to grow */
+  }
+
+  /* SMALL size buttons */
+  &.sm {
+    height: $input-size-sm;
+    min-width: $input-size-sm; /* Allow button to grow */
+  }
+
+  /* CLEAR button (If not disabled) */
+  &.clear:not(.disabled) {
+    &:hover,
+    &:focus {
+      background: $light;
     }
   }
 
-  /* Light button with light background */
-  &.light {
-    background: $light;
+  /* WHITE button */
+  &.white {
+    background: $white;
 
-    /* If not disabled, show hover/focus state */
+    /* Hover/focus state (If not disabled) */
     &:not(.disabled) {
       &:hover,
       &:focus {
@@ -39,21 +46,41 @@
     }
   }
 
-  /* If not disabled, show button with active state triggered */
-  &:not(.disabled).active {
-    &.clear,
-    &.light {
-      background: $primary;
-      color: $white;
+  /* LIGHT button */
+  &.light {
+    background: $light;
+
+    /* Hover/focus state (If not disabled) */
+    &:not(.disabled) {
+      &:hover,
+      &:focus {
+        background: $gray;
+      }
     }
   }
 
-  /* Danger button with red background */
+  /* ACTIVE state (If not disabled) */
+  &:not(.disabled).active {
+    &.clear,
+    &.white,
+    &.light {
+      background: $primary;
+      color: $white;
+
+      /* Hover/focus state */
+      &:hover,
+      &:focus {
+        opacity: .5;
+      }
+    }
+  }
+
+  /* DANGER button */
   &.danger {
     background: $red;
     color: $white;
 
-    /* If not disabled, show hover/focus state */
+    /* Hover/focus state (If not disabled) */
     &:not(.disabled) {
       &:hover,
       &:focus {
@@ -62,7 +89,7 @@
     }
   }
 
-  /* If disabled, show disabled button */
+  /* DISABLED state */
   &.disabled {
     opacity: .25;
   }
