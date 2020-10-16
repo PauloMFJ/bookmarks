@@ -9,7 +9,7 @@ import { Bookmark } from '@app/shared/models/bookmark.model';
 export class BookmarksComponent {
 
   /**
-   * bookmark - Input bookmark objects[] to render.
+   * List of bookmarks to render.
    */
   @Input() bookmarks: Bookmark[];
 

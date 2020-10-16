@@ -14,14 +14,18 @@ export class SearchBarComponent {
    */
   @Input() placeholder = 'Seach...';
 
-  @Output() searchChangedEvent = new EventEmitter<string>();
+  /**
+   * Event emitter used to listen to search change events.
+   * @param {string} searchChanged Emits on search change event.
+   */
+  @Output() searchChanged = new EventEmitter<string>();
 
   constructor() { }
 
   /**
-   * Method to emit a (searchChangedEvent) on search.
+   * Method to emit a (searchChanged) event.
    * @param {string} searchTerm Search term to emit.
    */
-  onSearchChanged = (searchTerm: string) => this.searchChangedEvent.emit(searchTerm);
+  onSearchChanged = (searchTerm: string) => this.searchChanged.emit(searchTerm);
 
 }

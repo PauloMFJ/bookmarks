@@ -2,8 +2,8 @@
 :host {
   display: block;
 
-  /* Apply to all, expet last child */
-  > *:not(:last-child) {
-    margin-bottom: 16px;
+  /* Center error message on page */
+  .error {
+    text-align: center;
   }
 }

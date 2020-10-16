@@ -1,0 +1,13 @@
+<div class="button {{ type }}"
+     [class.active]="active"
+     (click)="onClick()"
+     (keyup.enter)="onClick()"
+     tabindex="0">
+  <!-- If label, show -->
+  <span *ngIf="label; else custom">{{ label }}</span>
+
+  <!-- Else, allow custom -->
+  <ng-template #custom>
+    <ng-content select="[content]"></ng-content>
+  </ng-template>
+</div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Bookmark } from '@app/shared/models/bookmark.model';
 
 @Component({
@@ -6,15 +6,13 @@ import { Bookmark } from '@app/shared/models/bookmark.model';
   templateUrl: './bookmark.component.html',
   styleUrls: ['./bookmark.component.scss']
 })
-export class BookmarkComponent implements OnInit {
+export class BookmarkComponent {
 
   /**
-   * bookmark - Input bookmark object to render.
+   * Bookmark object to render.
    */
   @Input() bookmark: Bookmark;
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

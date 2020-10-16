@@ -13,6 +13,7 @@ import { ResultComponent } from './shared/views/result/result.component';
 import { BookmarkComponent } from './shared/components/bookmark/bookmark.component';
 import { BookmarksComponent } from './shared/components/bookmarks/bookmarks.component';
 import { SearchBarComponent } from './shared/components/search-bar/search-bar.component';
+import { ButtonComponent } from './shared/components/button/button.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SearchBarComponent } from './shared/components/search-bar/search-bar.co
     ResultComponent,
     BookmarkComponent,
     BookmarksComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

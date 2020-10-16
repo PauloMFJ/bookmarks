@@ -16,6 +16,7 @@
     display: flex;
     height: 48px;
     justify-content: space-between;
+    margin-bottom: 16px;
     outline: none; /* Remove default browser focus behaviour */
     padding: 0 16px;
     text-decoration: none; /* Remove default hyperlink decorations */
@@ -42,6 +43,10 @@
       }
     }
 
+    .controls {
+      opacity: .1;
+    }
+
     &:hover,
     &:focus {
       --border-opacity: 1;
@@ -52,6 +57,10 @@
      .details .url {
         height: 16px; /* Transform url in */
         opacity: 1; /* Fade url in */
+      }
+
+      .controls {
+        opacity: 1;
       }
     }
   }

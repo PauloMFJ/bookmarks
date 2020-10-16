@@ -1,0 +1,41 @@
+@import '~src/assets/styles/shared';
+
+.button {
+  align-items: center;
+  border-radius: $border-radius;
+  border: 0; /* Remove default button styling */
+  cursor: pointer;
+  display: flex;
+  font-family: $roboto;
+  height: $input-size;
+  justify-content: center;
+  min-width: $input-size; /* Keep button width same or larger than height */
+  outline: none; /* Remove default browser focus behaviour */
+  padding: 0 8px;
+  text-decoration: none; /* Remove default hyperlink decorations */
+  transition: all $transition-speed ease-in-out;
+  white-space: nowrap;
+
+  /* Button without a background */
+  &.clear {
+    &:hover,
+    &:focus {
+      background: $light;
+    }
+
+    &.active {
+      background: $primary;
+      color: $white;
+    }
+  }
+
+  /* Button with light background */
+  &.light {
+    background: $light;
+
+    &:hover,
+    &:focus {
+      background: $gray;
+    }
+  }
+}

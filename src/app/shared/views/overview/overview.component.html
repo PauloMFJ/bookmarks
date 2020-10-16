@@ -1,15 +1,35 @@
 <h1>bookmarks.</h1>
 <div class="container">
   <div id="controls-container">
-    <!-- TODO: Implement <div class="button light">+</div> -->
+    <!-- Add new button -->
+    <app-button type="light">
+      <div content>
+        <svg-icon src="assets/images/add.svg" class="display-flex"></svg-icon>
+      </div>
+    </app-button>
+
+    <!-- Search bar -->
     <app-search-bar placeholder="Search Bookmarks..."
-                    (searchChangedEvent)="onSearchChanged($event)">
+                    (searchChanged)="onSearchChanged($event)">
     </app-search-bar>
+
     <!-- TODO: Implement <app-sort-by></app-sort-by> -->
-    <!-- TODO: Implement <div class="button light"><3</div> -->
+
+    <!-- Filter by favourites -->
+    <app-button type="light">
+      <div content>
+        <svg-icon src="assets/images/favourite.svg" class="display-flex"></svg-icon>
+      </div>
+    </app-button>
+
     <!-- TODO: Implement <div class="button danger">Delete All</div> -->
   </div>
-  <!-- TODO: Implement <app-add-bookmark></app-add-bookmark> -->
-  <app-bookmarks [bookmarks]="bookmarks"></app-bookmarks>
-  <!-- TODO: Implement <app-pagination></app-pagination> -->
+  <div id="bookmarks-container">
+    <!-- TODO: Implement <app-add-bookmark></app-add-bookmark> -->
+
+    <!-- Bookmarks -->
+    <app-bookmarks [bookmarks]="bookmarks"></app-bookmarks>
+
+    <!-- TODO: Implement <app-pagination></app-pagination> -->
+  </div>
 </div>

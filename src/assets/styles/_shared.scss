@@ -1,10 +1,15 @@
 
+/* Fonts */
+$roboto: 'Roboto', Helvetica, sans-serif;
+$open-sans: 'Open Sans', Helvetica, sans-serif;
+
 /* App Theme */
 $primary: #4bd9a9;
 
 /* Whites / Greys / Blacks */
 $black: #000;
 $dark:  #ababab;
+$gray:  #ccc;
 $light: #f2f2f2;
 $white: #fff;
 
@@ -14,3 +19,5 @@ $purple: #b185ff;
 
 /* Frequently used CSS */
 $border-radius: 4px;
+$input-size: 32px;
+$transition-speed: .2s;

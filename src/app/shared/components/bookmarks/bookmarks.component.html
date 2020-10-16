@@ -1,3 +1,9 @@
-<app-bookmark *ngFor="let bookmark of bookmarks"
-              [bookmark]="bookmark">
-</app-bookmark>
+<!-- If has bookmarks, show -->
+<div *ngIf="bookmarks.length; else error">
+  <app-bookmark *ngFor="let bookmark of bookmarks" [bookmark]="bookmark"></app-bookmark>
+</div>
+
+<!-- Else, show empty error message -->
+<ng-template #error>
+   <div class="error">Oops! No bookmarks could be found.</div>
+</ng-template>
