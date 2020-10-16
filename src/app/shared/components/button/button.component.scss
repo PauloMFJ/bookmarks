@@ -22,11 +22,6 @@
     &:focus {
       background: $light;
     }
-
-    &.active {
-      background: $primary;
-      color: $white;
-    }
   }
 
   /* Button with light background */
@@ -36,6 +31,26 @@
     &:hover,
     &:focus {
       background: $gray;
+    }
+  }
+
+  /* Button with active state triggered */
+  &.clear,
+  &.light {
+    &.active {
+      background: $primary;
+      color: $white;
+    }
+  }
+
+  /* Button with red background */
+  &.danger {
+    background: $red;
+    color: $white;
+
+    &:hover,
+    &:focus {
+      opacity: .5;
     }
   }
 }

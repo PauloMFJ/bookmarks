@@ -7,10 +7,15 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class SearchBarComponent {
 
+  /**
+   * Current value of search bar.
+   * @type {string}
+   */
   searchTerm: string;
 
   /**
    * Placeholder string to show in search bar, DEFAULTS to 'Search...'.
+   * @type {string}
    */
   @Input() placeholder = 'Seach...';
 

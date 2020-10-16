@@ -11,7 +11,7 @@ export class LogoComponent {
   constructor(private router: Router) { }
 
   /**
-   * Route to overview page.
+   * Method to route to overview page.
    */
   routeToHome = () => this.router.navigate(['/overview']);
 

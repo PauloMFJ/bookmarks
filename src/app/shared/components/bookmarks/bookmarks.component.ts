@@ -10,6 +10,7 @@ export class BookmarksComponent {
 
   /**
    * List of bookmarks to render.
+   * @type {Bookmark[]}
    */
   @Input() bookmarks: Bookmark[];
 

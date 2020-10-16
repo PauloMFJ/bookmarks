@@ -10,6 +10,7 @@ export class BookmarkComponent {
 
   /**
    * Bookmark object to render.
+   * @type {Bookmark}
    */
   @Input() bookmark: Bookmark;
 

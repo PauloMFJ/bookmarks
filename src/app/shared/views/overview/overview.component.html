@@ -2,7 +2,8 @@
 <div class="container">
   <div id="controls-container">
     <!-- Add new button -->
-    <app-button type="light">
+    <app-button type="light"
+                (clicked)="addNew()">
       <div content>
         <svg-icon src="assets/images/add.svg" class="display-flex"></svg-icon>
       </div>
@@ -16,13 +17,18 @@
     <!-- TODO: Implement <app-sort-by></app-sort-by> -->
 
     <!-- Filter by favourites -->
-    <app-button type="light">
+    <app-button type="light"
+                [active]="filterByFavourites"
+                (clicked)="toggleFavourites()">
       <div content>
         <svg-icon src="assets/images/favourite.svg" class="display-flex"></svg-icon>
       </div>
     </app-button>
 
-    <!-- TODO: Implement <div class="button danger">Delete All</div> -->
+    <app-button type="danger"
+                label="Delete All"
+                (clicked)="deleteAll()">
+    </app-button>
   </div>
   <div id="bookmarks-container">
     <!-- TODO: Implement <app-add-bookmark></app-add-bookmark> -->
@@ -30,6 +36,6 @@
     <!-- Bookmarks -->
     <app-bookmarks [bookmarks]="bookmarks"></app-bookmarks>
 
-    <!-- TODO: Implement <app-pagination></app-pagination> -->
+    <!-- TODO: Implement <app-paginate></app-paginate> -->
   </div>
 </div>

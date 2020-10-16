@@ -9,6 +9,12 @@ import { Bookmark } from '../../models/bookmark.model';
 export class OverviewComponent implements OnInit {
 
   /**
+   * If bookmarks are currently being filtered by favourites (true), or not (false).
+   * @type {Boolean}
+   */
+  filterByFavourites = false;
+
+  /**
    * bookmarks - TODO: Connect to real services, temporarily using dummy data for testing.
    */
   bookmarks = [
@@ -27,6 +33,25 @@ export class OverviewComponent implements OnInit {
    */
   onSearchChanged(searchTerm: string) {
     console.log(searchTerm);
+  }
+
+  /**
+   * Method to add new bookmark.
+   */
+  addNew() {
+    console.log('New!');
+  }
+
+  /**
+   * Method to toggle and filter bookmarks by favourites only or not.
+   */
+  toggleFavourites = () => this.filterByFavourites = !this.filterByFavourites;
+
+  /**
+   * Method to delete all bookmarks.
+   */
+  deleteAll() {
+    console.log('Deleted!');
   }
 
 }

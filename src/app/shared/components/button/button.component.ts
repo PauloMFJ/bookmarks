@@ -9,6 +9,7 @@ export class ButtonComponent {
 
   /**
    * Label to show inside button.
+   * @type {string}
    */
   @Input() label: string;
 
@@ -17,11 +18,14 @@ export class ButtonComponent {
    *
    *  - 'clear'.
    *  - 'light'.
+   *  - 'danger'
+   * @type {string}
    */
   @Input() type: 'clear' | 'light' = 'clear';
 
   /**
    * If button is active (true), or not (false).
+   * @type {boolean}
    */
   @Input() active: boolean;
 
