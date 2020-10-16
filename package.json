@@ -14,8 +14,10 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.11",
+    "@angular/cli": "~8.3.14",
     "@angular/common": "~8.2.11",
     "@angular/compiler": "~8.2.11",
+    "@angular/compiler-cli": "~8.2.11",
     "@angular/core": "~8.2.11",
     "@angular/forms": "~8.2.11",
     "@angular/platform-browser": "~8.2.11",
