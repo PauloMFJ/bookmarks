@@ -1,5 +1,5 @@
 
-// Map of breakpoints
+/* Map of breakpoints */
 $breakpoints: (
   xs: 384px,
   sm: 512px,
@@ -7,53 +7,53 @@ $breakpoints: (
   lg: 1024px
 );
 
-// For @Media above queries, to use - '@include media-breakpoint-above(xs|sm|md|lg)';
+/* For @Media above queries, to use - '@include media-breakpoint-above(xs|sm|md|lg)' */
 @mixin media-breakpoint-above($breakpoint) {
-  // If breakpoint exists, get value
+  /* If breakpoint exists, get value */
   @if map-has-key($breakpoints, $breakpoint) {
     $breakpoint-value: map-get($breakpoints, $breakpoint);
 
-    // Return @media query
+    /* Return @media query */
     @media (min-width: $breakpoint-value) {
       @content;
     }
   }
-  // Else, log error
+  /* Else, log error */
   @else {
     @warn 'Invalid breakpoint: #{$breakpoint}.';
   }
 }
 
-// For @Media below queries, to use - '@include media-breakpoint-below(xs|sm|md|lg)';
+/* For @Media below queries, to use - '@include media-breakpoint-below(xs|sm|md|lg)'; */
 @mixin media-breakpoint-below($breakpoint) {
-  // If breakpoint exists, get value
+  /* If breakpoint exists, get value */
   @if map-has-key($breakpoints, $breakpoint) {
     $breakpoint-value: map-get($breakpoints, $breakpoint);
 
-    // Return @media query
+    /* Return @media query */
     @media (max-width: ($breakpoint-value - 1)) {
       @content;
     }
   }
-  // Else, log error
+  /* Else, log error */
   @else {
     @warn 'Invalid breakpoint: #{$breakpoint}.';
   }
 }
 
-// For @Media between queries, to use - '@include media-breakpoint-between(xs|sm|md|lg, xs|sm|md|lg)';
+/* For @Media between queries, to use - '@include media-breakpoint-between(xs|sm|md|lg, xs|sm|md|lg)'; */
 @mixin media-breakpoint-between($lower, $upper) {
-  // If lower and upper breakpoints exists, get corresponding values
+  /* If lower and upper breakpoints exists, get corresponding values */
   @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
     $lower-breakpoint: map-get($breakpoints, $lower);
     $upper-breakpoint: map-get($breakpoints, $upper);
 
-    // Return @media query
+    /* Return @media query */
     @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
       @content;
     }
   }
-  // Else, log error
+  /* Else, log error */
   @else {
     @if (map-has-key($breakpoints, $lower) == false) {
       @warn 'Invalid lower breakpoint: #{$lower}.';
