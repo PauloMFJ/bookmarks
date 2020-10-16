@@ -33,7 +33,7 @@ export class PaginationComponent implements OnInit {
    * Method to go back a page, ignored if already on first page.
    */
   previous() {
-    if (this.current > 1) {
+    if (this.current > 0) {
       this.setPage(this.current - 1);
     }
   }
@@ -42,7 +42,7 @@ export class PaginationComponent implements OnInit {
    * Method to go forward a page, ignored if already on last page.
    */
   next() {
-    if (this.current < this.total) {
+    if (this.current < this.total - 1) {
       this.setPage(this.current + 1);
     }
   }
@@ -56,5 +56,4 @@ export class PaginationComponent implements OnInit {
       this.pageChange.emit(this.current = page);
     }
   }
-
 }
