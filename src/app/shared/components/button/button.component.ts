@@ -53,6 +53,13 @@ export class ButtonComponent {
   @Input() tabIndex: number;
 
   /**
+   * Used to stop click events from from bubbling up to parent
+   *     elements or from capturing down to child elements.
+   * @type {boolean}
+   */
+  @Input() stopPropagation: boolean;
+
+  /**
    * Event emitter used to listen to click and keyup.enter events.
    * @param {boolean} clicked Emits on click event.
    */
@@ -62,8 +69,15 @@ export class ButtonComponent {
 
   /**
    * Method to emit a (clicked) event, ignored if disabled is true.
+   * @param {any=} event Used to stopPropagation if enabled.
    */
-  onClick() {
+  onClick(event?: any): void {
+    // If stopPropagation is true, prevent clicks from bubbling
+    if (event && this.stopPropagation) {
+      event.stopPropagation();
+    }
+
+    // If button is not disabled, emit click event
     if (!this.disabled) {
       this.clicked.emit(true);
     }

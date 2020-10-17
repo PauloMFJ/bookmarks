@@ -22,6 +22,13 @@ export class BookmarkComponent {
   constructor(private bookmarksService_: BookmarksService) { }
 
   /**
+   * Method used to navigate user to bookmark url.
+   */
+  navigateToUrl() {
+    console.log(this.bookmark.url);
+  }
+
+  /**
    * Method to update this bookmarks favourited state.
    */
   favourite() {

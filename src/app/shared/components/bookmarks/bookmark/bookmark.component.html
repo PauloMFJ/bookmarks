@@ -1,7 +1,6 @@
 <a class="card transition"
-   target="_blank"
-   href="{{ bookmark.url }}"
-   rel="noreferrer"
+   (click)="navigateToUrl()"
+   (keydown.enter)="navigateToUrl()"
    tabindex="0">
   <!-- Details -->
   <div class="details">
@@ -15,6 +14,7 @@
     <!-- TODO: Extract favourite icon into its own reusable component -->
     <app-button type="clear"
                 (clicked)="favourite()"
+                [stopPropagation]="true"
                 [active]="bookmark.favourited"
                 tabIndex="-1">
       <div content>
@@ -25,6 +25,7 @@
     <!-- Edit -->
     <app-button type="clear"
                 (clicked)="edit()"
+                [stopPropagation]="true"
                 tabIndex="-1">
       <div content>
         <svg-icon src="assets/images/edit.svg" class="display-flex"></svg-icon>
@@ -34,6 +35,7 @@
     <!-- Delete -->
     <app-button type="clear"
                 (clicked)="delete()"
+                [stopPropagation]="true"
                 tabIndex="-1">
       <div content>
         <svg-icon src="assets/images/delete.svg" class="display-flex"></svg-icon>

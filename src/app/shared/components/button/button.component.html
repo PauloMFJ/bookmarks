@@ -1,6 +1,6 @@
 <div class="button {{ type }} {{ size }}"
      [ngClass]="{ 'active': active, 'disabled': disabled }"
-     (click)="onClick()"
+     (click)="onClick($event)"
      (keyup.enter)="onClick()"
      tabindex="{{ disabled ? '-1' : tabIndex }}">
   <!-- If label, show -->
