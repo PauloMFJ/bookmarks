@@ -28,15 +28,15 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 6vw;
+  font-size: calc(24px + 6vw); /* Dynamic font-size with min size */
 }
 
 h2 {
-  font-size: 32px;
+  font-size: 24px;
 }
 
 h3 {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 h4 {
@@ -55,12 +55,12 @@ h4 {
 
 /* Containers */
 .container {
-  max-width: 1140px;
-  width: 100%;
-  margin: 0 auto;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin: 0 auto;
+  max-width: 1140px;
+  width: 100%;
 }
 
 /* Other */
