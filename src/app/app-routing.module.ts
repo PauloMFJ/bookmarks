@@ -19,7 +19,12 @@ const routes: Routes = [
         path: 'result/:id',
         pathMatch: 'full',
         component: ResultComponent,
-    }
+    },
+    // If path doesnt match previous, fallback to page not found
+    {
+        path: '**',
+        component: PageNotFoundComponent,
+    },
 ];
 
 @NgModule({
