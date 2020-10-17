@@ -1,2 +1,9 @@
-<h1>awesome.</h1>
-<span>Bookmark successfully logged!</span>
+<div class="container">
+  <h1>awesome.</h1>
+  <span>Bookmark successfully logged!</span>
+  <app-bookmark [bookmark]="bookmark"></app-bookmark>
+  <app-button type="light"
+              label="Return to Overview"
+              [active]="true"
+              (clicked)="routeToOverview()"></app-button>
+</div>

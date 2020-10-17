@@ -1,32 +1,21 @@
 @import '~src/assets/styles/media-queries';
 
-:host {
+h1 {
+  margin-bottom: 48px;
+}
+
+#controls-container {
   align-items: center;
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  padding: 8px; /* Inner padding */
   width: 100%;
 
-  h1 {
-    margin-bottom: 48px;
+  > * {
+    margin: 8px; /* Outer margin, with previous keeps 16px spacings */
   }
+}
 
-  .container {
-    max-width: 1140px;
-    width: 100%;
-
-    #controls-container {
-      align-items: center;
-      display: flex;
-      padding: 8px;
-
-      > * {
-        margin: 8px;
-      }
-    }
-
-    #bookmarks-container {
-      padding: 0 16px;
-    }
-  }
+#bookmarks-container {
+  padding: 0 16px;
+  width: 100%;
 }

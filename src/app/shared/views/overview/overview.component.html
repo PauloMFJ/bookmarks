@@ -1,15 +1,8 @@
-<h1>bookmarks.</h1>
 <div class="container">
-  <div id="controls-container">
-    <!-- Add new button -->
-    <!-- TODO: Implement toggle to show and hude bookmark form
-    <app-button type="light"
-                (clicked)="addNew()">
-      <div content>
-        <svg-icon src="assets/images/add.svg" class="display-flex"></svg-icon>
-      </div>
-    </app-button> -->
+  <h1>bookmarks.</h1>
 
+  <!-- Controls container -->
+  <div id="controls-container">
     <!-- Search bar -->
     <app-search-bar placeholder="Search Bookmarks..."
                     (searchChanged)="onSearchChanged($event)">
@@ -32,11 +25,10 @@
                 (clicked)="deleteAll()">
     </app-button>
   </div>
-  <div id="bookmarks-container">
-    <!-- Bookmarks form to create new bookmarks -->
-    <app-bookmark-form></app-bookmark-form>
 
-    <!-- Bookmarks -->
+  <!-- Bookmarks form/list container -->
+  <div id="bookmarks-container">
+    <app-bookmark-form></app-bookmark-form>
     <app-bookmarks></app-bookmarks>
   </div>
 </div>

@@ -10,7 +10,7 @@ export class LogoComponent {
 
   /**
    * Constructor used to initialise LogoComponent object.
-   * @private {Router} router_ Used to navigate app.
+   * @private {Router} router_ Used to redirect url.
    */
   constructor(private router_: Router) { }
 

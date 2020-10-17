@@ -50,12 +50,12 @@ export class Bookmark {
      * @return {number} FormGroup object.
      */
     getForm(formBuilder: FormBuilder) {
-       return formBuilder.group({
-            name: [this.name, [Validators.required, Validators.maxLength(255)]],
-            // TODO: Implement url validation regex
-            url: [this.url, [Validators.required]],
-            favourited: [this.favourited],
-        });
+      return formBuilder.group({
+        name: [this.name, [Validators.required, Validators.maxLength(255)]],
+        // TODO: Implement url validation regex
+        url: [this.url, [Validators.required]],
+        favourited: [this.favourited],
+      });
     }
 
     /**
@@ -63,9 +63,9 @@ export class Bookmark {
      * @param {FormGroup} formGroup FormGroup object to get values from.
      */
     from(formGroup: FormGroup) {
-        const form = formGroup.value;
-        this.name = form.name;
-        this.url = form.url;
-        this.favourited = form.favourited;
+      const form = formGroup.value;
+      this.name = form.name;
+      this.url = form.url;
+      this.favourited = form.favourited;
     }
 }

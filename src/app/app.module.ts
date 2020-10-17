@@ -16,6 +16,7 @@ import { SearchBarComponent } from './shared/components/search-bar/search-bar.co
 import { PaginationComponent } from './shared/components/pagination/pagination.component';
 import { ButtonComponent } from './shared/components/button/button.component';
 import { BookmarkFormComponent } from './shared/components/bookmarks/bookmark-form/bookmark-form.component';
+import { PageNotFoundComponent } from './shared/views/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BookmarkFormComponent } from './shared/components/bookmarks/bookmark-fo
     SearchBarComponent,
     PaginationComponent,
     ButtonComponent,
-    BookmarkFormComponent
+    BookmarkFormComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
