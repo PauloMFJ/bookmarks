@@ -13,6 +13,11 @@
   transition: all $transition-speed ease-in-out;
   white-space: nowrap;
 
+  /* If active, show click down animation */
+  &:active {
+    transform: translateY(2px);
+  }
+
   /* MEDIUM size buttons */
   &.md {
     height: $input-size;
