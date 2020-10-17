@@ -28,7 +28,8 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: calc(24px + 6vw); /* Dynamic font-size with min size */
+  font-size: calc(24px + 5vw); /* Dynamic font-size with min size */
+  margin-bottom: 16px;
 }
 
 h2 {
