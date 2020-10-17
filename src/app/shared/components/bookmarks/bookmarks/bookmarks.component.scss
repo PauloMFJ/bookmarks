@@ -2,6 +2,11 @@
 :host {
   display: block;
 
+  /* keep spacing between bookmarks (Ignores last bookmark) */
+  .bookmarks-container > *:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
   /* Center error message on page */
   .error {
     text-align: center;

@@ -1,6 +1,8 @@
 <!-- If has bookmarks, show -->
-<div *ngIf="bookmarks.length; else error">
-  <app-bookmark *ngFor="let bookmark of bookmarks" [bookmark]="bookmark"></app-bookmark>
+<div *ngIf="bookmarks.length; else error"
+     class="bookmarks-container">
+  <app-bookmark *ngFor="let bookmark of bookmarks"
+                [bookmark]="bookmark"></app-bookmark>
 </div>
 
 <!-- Else, show empty error message -->

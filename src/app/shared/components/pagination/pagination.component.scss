@@ -3,8 +3,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 8px; /* Inner padding */
 
   > * {
-    margin: 8px;
+    margin: 8px; /* Outer margin, with previous keeps 16px spacings */
   }
 }
