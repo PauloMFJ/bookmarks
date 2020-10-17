@@ -1,6 +1,6 @@
-<a class="card">
+<div class="card">
   <div class="card-header">
-    <h2>Add Bookmark</h2>
+      <h2>Add Bookmark</h2>
 
     <!-- Close Button -->
     <app-button type="white"
@@ -14,14 +14,24 @@
 
   <!-- Bookmark Form -->
   <form>
-    <input type="text"
-           placeholder="Website Name...">
-    <input type="text"
-            placeholder="URL...">
+    <div class="field">
+      <label for="name">Website Name</label>
+      <input type="text"
+             id="name"
+             placeholder="Website Name...">
+    </div>
+
+    <div class="field">
+      <label for="url">URL</label>
+      <input type="text"
+             id="url"
+             placeholder="URL...">
+    </div>
+
     <!-- TODO: Add [disabled]="form.invalid" and [active]="!form.invalid" -->
     <app-button type="light"
                 label="Add"
                 [active]="true">
     </app-button>
   </form>
-</a>
+</div>

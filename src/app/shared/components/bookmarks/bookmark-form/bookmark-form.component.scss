@@ -1,4 +1,5 @@
 @import '~src/assets/styles/shared';
+@import '~src/assets/styles/media-queries';
 
 :host {
   display: block;
@@ -16,7 +17,7 @@
     .card-header {
       display: flex;
       justify-content: space-between;
-      padding: 16px 16px 0 16px;
+      padding: 16px 16px 0 16px; /* Provide padding except below */
     }
 
     input {
@@ -24,12 +25,20 @@
     }
 
     form {
+      align-items: flex-end;
       display: flex;
-      padding: 8px;
+      padding: 8px; /* Inner padding */
 
       > * {
-        margin: 8px;
+        margin: 8px; /* Outer margin, with previous keeps 16px spacings */
       }
     }
+  }
+}
+
+@include media-breakpoint-below(md) {
+  form {
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
 }
