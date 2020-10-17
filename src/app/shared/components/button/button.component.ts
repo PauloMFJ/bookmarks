@@ -62,7 +62,7 @@ export class ButtonComponent {
 
   /**
    * Event emitter used to listen to click and keyup.enter events.
-   * @param {boolean} clicked Emits on click event.
+   * @param {boolean} clicked Emits 'true' on click event.
    */
   @Output() clicked = new EventEmitter<boolean>();
 

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Bookmark } from '@app/shared/models/bookmark.model';
 import { BookmarksService } from '@app/shared/services/bookmarks/bookmarks.service';
 
@@ -14,6 +14,12 @@ export class BookmarkComponent {
    * @type {Bookmark}
    */
   @Input() bookmark: Bookmark;
+
+  /**
+   * Event emitter used to listen to deleted events.
+   * @param {boolean} deleted Emits 'true' on delete event.
+   */
+  @Output() deleted = new EventEmitter<boolean>();
 
   /**
    * Constructor used to initialise BookmarkComponent object.
@@ -46,6 +52,9 @@ export class BookmarkComponent {
    */
   delete() {
     this.bookmarksService_.delete(this.bookmark.id);
+
+    // Emit deleted event
+    this.deleted.emit(true);
   }
 
 }
