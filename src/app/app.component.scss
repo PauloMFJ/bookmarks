@@ -4,7 +4,7 @@
   border-left: 12px solid $primary;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100vh;
 
   #page-container {
     padding: 156px 0;
