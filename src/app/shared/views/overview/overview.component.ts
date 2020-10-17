@@ -29,13 +29,6 @@ export class OverviewComponent {
   }
 
   /**
-   * Method to add new bookmark.
-   */
-  addNew(): void {
-    console.log('New!');
-  }
-
-  /**
    * Method to toggle and filter bookmarks by favourites only or not.
    */
   toggleFavourites(): void {
