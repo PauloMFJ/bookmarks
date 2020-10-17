@@ -34,8 +34,11 @@ export class ResultComponent implements OnDestroy {
       private bookmarksService_: BookmarksService,
       private router_: Router) {
     this.subscription = this.activatedRoute_.params.subscribe((params) => {
-      // Find and set bookmark from given router id
-      this.bookmark = this.bookmarksService_.find(params.id);
+      // Find bookmark from given router id, if bookmark isn't set (ie. bookmark
+      // not found), route to page-not-found.
+      if (!(this.bookmark = this.bookmarksService_.find(params.id))) {
+        this.router_.navigate(['/page-not-found']);
+      }
     });
   }
 
