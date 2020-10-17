@@ -44,7 +44,13 @@
     }
 
     .controls {
+      display: flex;
       opacity: .1;
+
+      /*Kkeep spacing between controls (Ignores last control) */
+      > *:not(:last-child) {
+        margin-right: 4px;
+      }
     }
 
     &:hover,

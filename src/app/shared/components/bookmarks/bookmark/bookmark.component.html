@@ -5,17 +5,34 @@
    tabindex="0">
   <!-- Details -->
   <div class="details">
-    <span class="name">{{ bookmark.name }}</span>
+    <div class="name">{{ bookmark.name }}</div>
     <div class="url transition">{{ bookmark.url }}</div>
   </div>
 
   <!-- Controls -->
   <div class="controls transition">
+    <!-- Favourite -->
     <!-- TODO: Extract favourite icon into its own reusable component -->
     <app-button type="clear"
                 tabIndex="-1">
       <div content>
         <svg-icon src="assets/images/favourite.svg" class="display-flex"></svg-icon>
+      </div>
+    </app-button>
+
+    <!-- Edit -->
+    <app-button type="clear"
+                tabIndex="-1">
+      <div content>
+        <svg-icon src="assets/images/edit.svg" class="display-flex"></svg-icon>
+      </div>
+    </app-button>
+
+    <!-- Delete -->
+    <app-button type="clear"
+                tabIndex="-1">
+      <div content>
+        <svg-icon src="assets/images/delete.svg" class="display-flex"></svg-icon>
       </div>
     </app-button>
   </div>
