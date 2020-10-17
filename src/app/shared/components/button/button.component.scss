@@ -92,9 +92,32 @@
     }
   }
 
+  /* GRADIENT button */
+  &.gradient {
+    animation: gradient 10s ease infinite; /* Use gradient animation */
+    background-size: 200% 100%; /* Larger background size used for animation */
+    background: linear-gradient(135deg, $primary, $purple); /* Gradient background */
+    color: $white;
+
+    /* Hover/focus state (If not disabled) */
+    &:not(.disabled) {
+      &:hover,
+      &:focus {
+        opacity: .5;
+      }
+    }
+  }
+
   /* DISABLED state */
   &.disabled {
     pointer-events: none; /* Disable pointer events */
     opacity: .25;
   }
+}
+
+/* Gradient keyframes for animation */
+@keyframes gradient {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }

@@ -64,15 +64,21 @@ export class BookmarksService {
 
   /**
    * Method used to add and save a new bookmark.
-   * @param {Bookmark} bookmark Bookmark object to add.
+   * @param {Bookmark | bookmark[]} bookmark Bookmark object to add, supports
+   *     individual bookmarks or bookmark arrays.
    */
-  add(bookmark: Bookmark): void {
+  add(bookmarks: Bookmark | Bookmark[]): void {
     // Get bookmarks
     this.bookmarks_ = this.localStorageService_.getItem(this.cookieName);
 
-    // Push new bookmark to array
-    this.bookmarks_.push(bookmark);
+    // If input is an array, concat array to existing bookmarks
+    if (Array.isArray(bookmarks)) {
+      this.bookmarks_ = this.bookmarks_.concat(bookmarks);
 
+    // Else push indivudal bookmark to start of array
+    } else {
+      this.bookmarks_.push(bookmarks);
+    }
     // Save changes
     this.save_();
   }

@@ -20,9 +20,10 @@ export class ButtonComponent {
    *  - 'light'.
    *  - 'white'.
    *  - 'danger'
+   *  - 'gradient'
    * @type {string}
    */
-  @Input() type: 'clear' | 'white' | 'light' | 'danger' = 'clear';
+  @Input() type: 'clear' | 'white' | 'light' | 'danger' | 'gradient' = 'clear';
 
   /**
    * Button size, DEFAULTS to 'md', supports following strings:

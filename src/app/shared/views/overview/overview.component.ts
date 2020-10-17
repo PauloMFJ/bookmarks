@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BookmarksService } from '@app/shared/services/bookmarks/bookmarks.service';
+import { Bookmark } from '@app/shared/models/bookmark.model';
 
 @Component({
   selector: 'app-overview',
@@ -33,6 +34,28 @@ export class OverviewComponent {
    */
   toggleFavourites(): void {
     this.filterByFavourites = !this.filterByFavourites;
+  }
+
+  /**
+   * Method used to load in 10 bookmarks of dummy data.
+   */
+  loadDummyData(): void {
+    const bookmarks = [];
+    // Generate 10 dummy data bookmarks
+    for (let i = 0; i < 10; i++) {
+      // Create dummy data bookmark
+      const bookmark = new Bookmark('bypaulo.', 'https://www.bypaulo.design/');
+
+      // Randomize id
+      bookmark.id = `${bookmark.id}${i}`;
+
+      // Push bookmark to list
+      bookmarks.push(bookmark);
+    }
+
+    // Save bookmarks
+    this.bookmarksService_.add(bookmarks);
+
   }
 
   /**
