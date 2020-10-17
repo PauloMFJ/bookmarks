@@ -2,7 +2,7 @@
 :host {
   display: block;
 
-  /* keep spacing between bookmarks (Ignores last bookmark) */
+  /* Keep spacing between bookmarks (Ignores last bookmark) */
   .bookmarks-container > *:not(:last-child) {
     margin-bottom: 16px;
   }
