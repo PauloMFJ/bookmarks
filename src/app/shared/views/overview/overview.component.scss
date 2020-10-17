@@ -1,5 +1,9 @@
 @import '~src/assets/styles/media-queries';
 
+.container {
+  padding: 0; /* Remove default padding */
+}
+
 #controls-container {
   align-items: center;
   display: flex;
