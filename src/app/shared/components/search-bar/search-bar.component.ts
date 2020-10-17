@@ -31,6 +31,8 @@ export class SearchBarComponent {
    * Method to emit a (searchChanged) event.
    * @param {string} searchTerm Search term to emit.
    */
-  onSearchChanged = (searchTerm: string) => this.searchChanged.emit(searchTerm);
+  onSearchChanged(searchTerm: string): void {
+    this.searchChanged.emit(searchTerm);
+  }
 
 }

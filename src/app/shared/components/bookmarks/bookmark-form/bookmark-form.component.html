@@ -13,27 +13,34 @@
   </div>
 
   <!-- Bookmark Form -->
-  <form>
+  <form [formGroup]="formGroup">
     <div class="field">
       <label for="name">Website Name</label>
       <input type="text"
+             formControlName="name"
              id="name"
              placeholder="Website Name..."
-             autocomplete="off">
+             autocomplete="off"
+             (keydown.enter)="submit()">
+      <!-- TODO: Implement error message -->
     </div>
 
     <div class="field">
       <label for="url">URL</label>
       <input type="text"
+             formControlName="url"
              id="url"
              placeholder="URL..."
-             autocomplete="off">
+             autocomplete="off"
+             (keydown.enter)="submit()">
+      <!-- TODO: Implement error message -->
     </div>
 
-    <!-- TODO: Add [disabled]="form.invalid" and [active]="!form.invalid" -->
     <app-button type="light"
                 label="Add"
-                [active]="true">
+                [disabled]="formGroup.invalid"
+                [active]="!formGroup.invalid"
+                (clicked)="submit()">
     </app-button>
   </form>
 </div>

@@ -8,11 +8,17 @@ import { Router } from '@angular/router';
 })
 export class LogoComponent {
 
-  constructor(private router: Router) { }
+  /**
+   * Constructor used to initialise LogoComponent object.
+   * @private {Router} router_ Used to navigate app.
+   */
+  constructor(private router_: Router) { }
 
   /**
    * Method to route to overview page.
    */
-  routeToHome = () => this.router.navigate(['/overview']);
+  routeToHome(): void {
+    this.router_.navigate(['/overview']);
+  }
 
 }

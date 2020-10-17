@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Bookmark } from '@app/shared/models/bookmark.model';
+import { BookmarksService } from '@app/shared/services/bookmarks/bookmarks.service';
 
 @Component({
   selector: 'app-bookmark',
@@ -14,6 +15,30 @@ export class BookmarkComponent {
    */
   @Input() bookmark: Bookmark;
 
-  constructor() { }
+  /**
+   * Constructor used to initialise BookmarkComponent object.
+   * @private {BookmarksService} bookmarksService_ Used to handle app bookmarks.
+   */
+  constructor(private bookmarksService_: BookmarksService) { }
+
+  /**
+   * Method to update this bookmarks favourited state.
+   */
+  favourite() {
+    // Toggle state and update
+    this.bookmark.favourited = !this.bookmark.favourited;
+    this.bookmarksService_.update(this.bookmark.id, this.bookmark);
+  }
+
+  edit() {
+    console.log('Edit!');
+  }
+
+  /**
+   * Method to permanently delete this bookmark.
+   */
+  delete() {
+    this.bookmarksService_.delete(this.bookmark.id);
+  }
 
 }

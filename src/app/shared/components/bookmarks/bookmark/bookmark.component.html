@@ -14,6 +14,8 @@
     <!-- Favourite -->
     <!-- TODO: Extract favourite icon into its own reusable component -->
     <app-button type="clear"
+                (clicked)="favourite()"
+                [active]="bookmark.favourited"
                 tabIndex="-1">
       <div content>
         <svg-icon src="assets/images/favourite.svg" class="display-flex"></svg-icon>
@@ -22,6 +24,7 @@
 
     <!-- Edit -->
     <app-button type="clear"
+                (clicked)="edit()"
                 tabIndex="-1">
       <div content>
         <svg-icon src="assets/images/edit.svg" class="display-flex"></svg-icon>
@@ -30,6 +33,7 @@
 
     <!-- Delete -->
     <app-button type="clear"
+                (clicked)="delete()"
                 tabIndex="-1">
       <div content>
         <svg-icon src="assets/images/delete.svg" class="display-flex"></svg-icon>

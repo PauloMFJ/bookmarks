@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Bookmark } from '../../models/bookmark.model';
+import { Component } from '@angular/core';
+import { BookmarksService } from '@app/shared/services/bookmarks/bookmarks.service';
 
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.scss']
 })
-export class OverviewComponent implements OnInit {
+export class OverviewComponent {
 
   /**
    * If bookmarks are currently being filtered by favourites (true), or not (false).
@@ -15,17 +15,10 @@ export class OverviewComponent implements OnInit {
   filterByFavourites = false;
 
   /**
-   * bookmarks - TODO: Connect to real services, temporarily using dummy data for testing.
+   * Constructor used to initialise OverviewComponent object.
+   * @private {BookmarksService} bookmarksService_ Used to handle app bookmarks.
    */
-  bookmarks = [
-      new Bookmark(0, 'https://www.bypaulo.design/', 'bypaulo.'),
-      new Bookmark(1, 'https://www.bypaulo.design/', 'bypaulo.', true),
-      new Bookmark(2, 'https://www.bypaulo.design/', 'bypaulo.'),
-  ];
-
-  constructor() { }
-
-  ngOnInit() { }
+  constructor(private bookmarksService_: BookmarksService) { }
 
   /**
    * Method to handle and search bookmarks by search change events.
@@ -38,20 +31,22 @@ export class OverviewComponent implements OnInit {
   /**
    * Method to add new bookmark.
    */
-  addNew() {
+  addNew(): void {
     console.log('New!');
   }
 
   /**
    * Method to toggle and filter bookmarks by favourites only or not.
    */
-  toggleFavourites = () => this.filterByFavourites = !this.filterByFavourites;
+  toggleFavourites(): void {
+    this.filterByFavourites = !this.filterByFavourites;
+  }
 
   /**
    * Method to delete all bookmarks.
    */
-  deleteAll() {
-    console.log('Deleted!');
+  deleteAll(): void {
+    this.bookmarksService_.deleteAll();
   }
 
 }

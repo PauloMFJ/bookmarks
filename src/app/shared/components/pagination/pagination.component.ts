@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss']
 })
-export class PaginationComponent implements OnInit {
+export class PaginationComponent {
 
   /**
    * current - Used to identify what page is currently active.
@@ -27,12 +27,11 @@ export class PaginationComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { }
-
   /**
    * Method to go back a page, ignored if already on first page.
    */
-  previous() {
+  previous(): void {
+    // If not first, set page
     if (this.current > 0) {
       this.setPage(this.current - 1);
     }
@@ -41,7 +40,8 @@ export class PaginationComponent implements OnInit {
   /**
    * Method to go forward a page, ignored if already on last page.
    */
-  next() {
+  next(): void {
+    // If not last, set page
     if (this.current < this.total - 1) {
       this.setPage(this.current + 1);
     }
@@ -51,7 +51,8 @@ export class PaginationComponent implements OnInit {
    * Method to go to a specific page, ignored if already on page.
    * @param {number} page Page number to go to.
    */
-  setPage(page: number) {
+  setPage(page: number): void {
+    // If page isn't current, set and emit pageChange event
     if (page !== this.current) {
       this.pageChange.emit(this.current = page);
     }
