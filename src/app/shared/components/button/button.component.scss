@@ -94,6 +94,7 @@
 
   /* DISABLED state */
   &.disabled {
+    pointer-events: none; /* Disable pointer events */
     opacity: .25;
   }
 }
