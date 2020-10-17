@@ -49,11 +49,4 @@ export class BookmarkFormComponent {
     // TODO: Implement else error handling
   }
 
-  /**
-   * Method used to cancel this form.
-   */
-  cancel(): void {
-    console.log('Cancel!');
-  }
-
 }
