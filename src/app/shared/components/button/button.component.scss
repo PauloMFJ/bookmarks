@@ -65,7 +65,6 @@
     &.white,
     &.light {
       background: $primary;
-      color: $white;
 
       /* Hover/focus state */
       &:hover,
@@ -78,7 +77,6 @@
   /* DANGER button */
   &.danger {
     background: $red;
-    color: $white;
 
     /* Hover/focus state (If not disabled) */
     &:not(.disabled) {
