@@ -1,134 +1,138 @@
 @import '~src/assets/styles/variables';
 
-button {
-  align-items: center;
-  background: transparent; /* Clear default button background */
-  border-radius: $border-radius;
-  border: 0; /* Remove default button border */
-  cursor: pointer;
-  display: flex;
-  font-family: $roboto;
-  font-size: 16px;
-  justify-content: center;
-  outline: none; /* Remove default browser focus behaviour */
-  padding: 0 8px;
-  text-decoration: none; /* Remove default hyperlink decorations */
-  transition: all $transition-speed ease-in-out;
-  white-space: nowrap;
+:host {
+  display: block;
 
-  /* MEDIUM size buttons */
-  &.md {
-    height: $input-size;
-    min-width: $input-size; /* Allow button to grow */
-  }
+  button {
+    align-items: center;
+    background: transparent; /* Clear default button background */
+    border-radius: $border-radius;
+    border: 0; /* Remove default button border */
+    cursor: pointer;
+    display: flex;
+    font-family: $roboto;
+    font-size: 16px;
+    justify-content: center;
+    outline: none; /* Remove default browser focus behaviour */
+    padding: 0 8px;
+    text-decoration: none; /* Remove default hyperlink decorations */
+    transition: all $transition-speed ease-in-out;
+    white-space: nowrap;
 
-  /* SMALL size buttons */
-  &.sm {
-    height: $input-size-sm;
-    min-width: $input-size-sm; /* Allow button to grow */
-  }
+    /* MEDIUM size buttons */
+    &.md {
+      height: $input-size;
+      min-width: $input-size; /* Allow button to grow */
+    }
 
-  /* CLEAR button (If not disabled) */
-  &.clear:not(:disabled) {
-    &:hover,
-    &:focus {
+    /* SMALL size buttons */
+    &.sm {
+      height: $input-size-sm;
+      min-width: $input-size-sm; /* Allow button to grow */
+    }
+
+    /* CLEAR button (If not disabled) */
+    &.clear:not(:disabled) {
+      &:hover,
+      &:focus {
+        background: $light;
+      }
+    }
+
+    /* WHITE button */
+    &.white {
+      background: $white;
+
+      /* Hover/focus state (If not disabled) */
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          background: $gray;
+        }
+      }
+    }
+
+    /* LIGHT button */
+    &.light {
       background: $light;
-    }
-  }
 
-  /* WHITE button */
-  &.white {
-    background: $white;
-
-    /* Hover/focus state (If not disabled) */
-    &:not(:disabled) {
-      &:hover,
-      &:focus {
-        background: $gray;
+      /* Hover/focus state (If not disabled) */
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          background: $gray;
+        }
       }
     }
-  }
 
-  /* LIGHT button */
-  &.light {
-    background: $light;
-
-    /* Hover/focus state (If not disabled) */
-    &:not(:disabled) {
-      &:hover,
-      &:focus {
-        background: $gray;
-      }
-    }
-  }
-
-  /* GRAY button */
-  &.gray {
-    background: $gray;
-
-    /* Hover/focus state (If not disabled) */
-    &:not(:disabled) {
-      &:hover,
-      &:focus {
-        background: $dark;
-      }
-    }
-  }
-
-  /* ACTIVE state (If not disabled) */
-  &:not(:disabled).active {
-    &.clear,
-    &.white,
-    &.light,
+    /* GRAY button */
     &.gray {
-      background: $primary;
+      background: $gray;
 
-      /* Hover/focus state */
-      &:hover,
-      &:focus {
-        opacity: .5;
+      /* Hover/focus state (If not disabled) */
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          background: $dark;
+        }
       }
     }
-  }
 
-  /* DANGER button */
-  &.danger {
-    background: $red;
+    /* ACTIVE state (If not disabled) */
+    &:not(:disabled).active {
+      &.clear,
+      &.white,
+      &.light,
+      &.gray {
+        background: $primary;
 
-    /* Hover/focus state (If not disabled) */
-    &:not(:disabled) {
-      &:hover,
-      &:focus {
-        opacity: .5;
+        /* Hover/focus state */
+        &:hover,
+        &:focus {
+          opacity: .5;
+        }
       }
     }
-  }
 
-  /* GRADIENT button */
-  &.gradient {
-    animation: gradient 8s ease infinite; /* Use gradient animation */
-    background-size: 200% 100% !important; /* Larger background size used for animation */
-    background: linear-gradient(135deg, $primary, $purple); /* Gradient background */
-    color: $white;
+    /* DANGER button */
+    &.danger {
+      background: $red;
 
-    /* Hover/focus state (If not disabled) */
-    &:not(:disabled) {
-      &:hover,
-      &:focus {
-        opacity: .5;
+      /* Hover/focus state (If not disabled) */
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          opacity: .5;
+        }
       }
     }
-  }
 
-  /* If active, show click down animation */
-  &:active {
-    transform: translateY(2px);
-  }
+    /* GRADIENT button */
+    &.gradient {
+      animation: gradient 8s ease infinite; /* Use gradient animation */
+      background-size: 200% 100% !important; /* Larger background size used for animation */
+      background: linear-gradient(135deg, $primary, $purple); /* Gradient background */
+      color: $white;
 
-  /* DISABLED state */
-  &:disabled {
-    pointer-events: none; /* Disable pointer events */
-    opacity: .25;
+      /* Hover/focus state (If not disabled) */
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          opacity: .5;
+        }
+      }
+    }
+
+    /* If active, show click down animation */
+    &:active {
+      transform: translateY(2px);
+    }
+
+    /* DISABLED state */
+    &:disabled {
+      pointer-events: none; /* Disable pointer events */
+      opacity: .25;
+    }
   }
 }
 

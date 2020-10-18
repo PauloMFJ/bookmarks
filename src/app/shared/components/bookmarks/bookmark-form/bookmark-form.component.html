@@ -2,6 +2,7 @@
     <div class="field">
       <!-- Error message -->
       <div *ngIf="formGroup.controls['name'].invalid && (formGroup.controls['name'].dirty || formGroup.controls['name'].touched)"
+           [@fade]
            class="error">Field is not valid.</div>
 
       <!-- Name input -->
@@ -16,6 +17,7 @@
     <div class="field">
       <!-- Error message -->
       <div *ngIf="formGroup.controls['url'].invalid && (formGroup.controls['url'].dirty || formGroup.controls['url'].touched)"
+           [@fade]
            class="error">Field is not valid.</div>
 
       <!-- URL input -->

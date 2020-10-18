@@ -1,7 +1,9 @@
 import { Component, OnDestroy } from '@angular/core';
-import { BookmarksService } from '@app/shared/services/bookmarks/bookmarks.service';
 import { Bookmark } from '@app/shared/models/bookmark.model';
+import { BookmarksService } from '@app/shared/services/bookmarks/bookmarks.service';
 import { environment } from '../../../../environments/environment';
+import { FadeAnimation } from '@app/shared/animations/fade.component';
+import { StaggerAnimation } from '@app/shared/animations/stagger.component';
 import { Pagination } from '@app/shared/models/pagination.model';
 import { PaginationService } from '@app/shared/services/pagination/pagination.service';
 import { Subscription } from 'rxjs';
@@ -9,6 +11,10 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
+  animations: [
+     FadeAnimation,
+     StaggerAnimation
+  ],
   styleUrls: ['./overview.component.scss']
 })
 export class OverviewComponent implements OnDestroy {

@@ -2,25 +2,30 @@
 @import '~src/assets/styles/media-queries';
 
 :host {
-  --margin: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--margin); /* Inner padding */
+  display: block;
+  width: 100%;
 
-  > * {
-    margin: var(--margin); /* Outer margin, with previous keeps 16px spacings */
-  }
+  .pagination-container {
+    --margin: 8px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: var(--margin); /* Inner padding */
 
-  /* Apply margin transition on change */
-  &,
-  > * {
-    transition: margin $transition-speed ease-in-out;
+    > * {
+      margin: var(--margin); /* Outer margin, with previous keeps 16px spacings */
+    }
+
+    /* Apply margin transition on change */
+    &,
+    > * {
+      transition: margin $transition-speed ease-in-out;
+    }
   }
 }
 
 @include media-breakpoint-below(md) {
-  :host {
+  .pagination-container {
     --margin: 2px; /* Reduce margin on smaller screens */
   }
 }

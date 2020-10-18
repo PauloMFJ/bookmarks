@@ -3,10 +3,12 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { BookmarksService } from '@app/shared/services/bookmarks/bookmarks.service';
 import { Bookmark } from '@app/shared/models/bookmark.model';
 import { Router } from '@angular/router';
+import { FadeAnimation } from '@app/shared/animations/fade.component';
 
 @Component({
   selector: 'app-bookmark-form',
   templateUrl: './bookmark-form.component.html',
+  animations: [ FadeAnimation ],
   styleUrls: ['./bookmark-form.component.scss']
 })
 export class BookmarkFormComponent implements OnInit {
