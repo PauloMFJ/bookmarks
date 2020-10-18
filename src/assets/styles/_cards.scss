@@ -33,7 +33,10 @@
     --border-opacity: .5;
     --box-shadow-opacity: .05;
     --box-shadow-position: 2px;
-    cursor: pointer;
+
+    .card-body {
+      cursor: pointer;
+    }
 
     &:hover,
     &:focus {

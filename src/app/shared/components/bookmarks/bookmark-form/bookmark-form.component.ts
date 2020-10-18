@@ -44,7 +44,7 @@ export class BookmarkFormComponent implements OnInit {
    * ngOnInit after Inputs have loaded, allows us to create a new bookmark, or create
    *     formGroup based on input.
    */
-  ngOnInit() {
+  ngOnInit(): void {
     // If bookmark doesn't exist create new empty one
     if (!this.bookmark) {
       this.bookmark = new Bookmark();

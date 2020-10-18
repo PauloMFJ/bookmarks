@@ -73,14 +73,14 @@ export class ButtonComponent {
    * @param {any=} event Used to stopPropagation if enabled.
    */
   onClick(event?: any): void {
+    // If button isn't disabled, emit clicked event
+    if (!this.disabled) {
+      this.clicked.emit(true);
+    }
+
     // If stopPropagation is true, prevent clicks from bubbling
     if (event && this.stopPropagation) {
       event.stopPropagation();
-    }
-
-    // If button is not disabled, emit click event
-    if (!this.disabled) {
-      this.clicked.emit(true);
     }
   }
 }

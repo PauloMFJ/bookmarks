@@ -36,14 +36,14 @@ export class BookmarkComponent {
   /**
    * Method used to navigate user to bookmark url in new tab.
    */
-  navigateToUrl() {
+  navigateToUrl(): void {
     window.open(this.bookmark.url, '_blank');
   }
 
   /**
    * Method to update and toggle this bookmarks favourited state.
    */
-  toggleFavourite() {
+  toggleFavourite(): void {
     this.bookmark.favourited = !this.bookmark.favourited;
     this.bookmarksService_.update(this.bookmark.id, this.bookmark);
   }
@@ -51,14 +51,14 @@ export class BookmarkComponent {
   /**
    * Method used to toggle edit state.
    */
-  toggleEdit() {
+  toggleEdit(): void {
     this.edit = !this.edit;
   }
 
   /**
    * Method to permanently delete this bookmark.
    */
-  delete() {
+  delete(): void {
     this.bookmarksService_.delete(this.bookmark.id);
 
     // Emit deleted event

@@ -6,7 +6,7 @@
            id="name"
            placeholder="Website Name..."
            autocomplete="off"
-           (keydown.enter)="submit()">
+           (keydown.enter)="submit(); $event.stopPropagation()">
     <!-- TODO: Implement error message -->
   </div>
 
@@ -17,7 +17,7 @@
            id="url"
            placeholder="URL..."
            autocomplete="off"
-           (keydown.enter)="submit()">
+           (keydown.enter)="submit(); $event.stopPropagation()">
     <!-- TODO: Implement error message -->
   </div>
 
@@ -25,6 +25,7 @@
               [label]="exists ? 'Save' : 'Add'"
               [disabled]="formGroup.invalid"
               [active]="!formGroup.invalid"
+              [stopPropagation]="true"
               (clicked)="submit()">
   </app-button>
 </form>

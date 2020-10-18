@@ -1,9 +1,9 @@
 <div class="card has-click-event"
      [class.editing]="edit"
-     (click)="navigateToUrl()"
      (keydown.enter)="navigateToUrl()"
      tabindex="0">
-  <div class="card-body">
+  <div class="card-body"
+       (click)="navigateToUrl()">
     <div class="details-container">
       <div class="name">{{ bookmark.name }}</div>
       <div class="url transition">{{ bookmark.url }}</div>
@@ -17,7 +17,7 @@
                   (clicked)="toggleFavourite()"
                   [stopPropagation]="true"
                   [active]="bookmark.favourited"
-                  tabIndex="-1">
+                  [tabIndex]="edit ? '0' : '-1'">
         <div content>
           <svg-icon src="assets/images/favourite.svg" class="display-flex"></svg-icon>
         </div>
@@ -28,7 +28,7 @@
                   (clicked)="toggleEdit()"
                   [active]="edit"
                   [stopPropagation]="true"
-                  tabIndex="-1">
+                  [tabIndex]="edit ? '0' : '-1'">
         <div content>
           <svg-icon src="assets/images/edit.svg" class="display-flex"></svg-icon>
         </div>
@@ -38,7 +38,7 @@
       <app-button type="clear"
                   (clicked)="delete()"
                   [stopPropagation]="true"
-                  tabIndex="-1">
+                  [tabIndex]="edit ? '0' : '-1'">
         <div content>
           <svg-icon src="assets/images/delete.svg" class="display-flex"></svg-icon>
         </div>
