@@ -11,7 +11,6 @@ import { LogoComponent } from './shared/components/logo/logo.component';
 import { OverviewComponent } from './shared/views/overview/overview.component';
 import { ResultComponent } from './shared/views/result/result.component';
 import { BookmarkComponent } from './shared/components/bookmarks/bookmark/bookmark.component';
-import { BookmarksComponent } from './shared/components/bookmarks/bookmarks/bookmarks.component';
 import { SearchBarComponent } from './shared/components/search-bar/search-bar.component';
 import { PaginatorComponent } from './shared/components/paginator/paginator.component';
 import { ButtonComponent } from './shared/components/button/button.component';
@@ -26,7 +25,6 @@ import { AddBookmarkComponent } from './shared/components/bookmarks/add-bookmark
     OverviewComponent,
     ResultComponent,
     BookmarkComponent,
-    BookmarksComponent,
     SearchBarComponent,
     PaginatorComponent,
     ButtonComponent,

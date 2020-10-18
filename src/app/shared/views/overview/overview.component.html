@@ -39,6 +39,22 @@
   <!-- Bookmarks form/list container -->
   <div id="bookmarks-container">
     <app-add-bookmark></app-add-bookmark>
-    <app-bookmarks></app-bookmarks>
+
+    <!-- If has bookmarks, show -->
+    <!-- TODO: Implement staggered load animation -->
+    <div *ngIf="pagination?.pagedList.length; else error">
+      <app-bookmark *ngFor="let bookmark of pagination.pagedList"
+                    [bookmark]="bookmark"></app-bookmark>
+
+      <!-- Paginator -->
+      <app-paginator *ngIf="pagination"
+                     [pagination]="pagination"
+                     (pageChange)="getPagedList($event)"></app-paginator>
+    </div>
+
+    <!-- Else, show empty error message -->
+    <ng-template #error>
+       <div class="error">No bookmarks found, add a new one to see it here!</div>
+    </ng-template>
   </div>
 </div>
