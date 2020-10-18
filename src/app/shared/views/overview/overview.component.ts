@@ -101,8 +101,8 @@ export class OverviewComponent implements OnDestroy {
       bookmarks = bookmarks.filter((bookmark) => bookmark.name.includes(this.searchTerm) || bookmark.url.includes(this.searchTerm));
     }
 
-    console.log(this.orderBy, this.bookmarks);
     // Order list
+    // TODO: Improve how this is implemented to support both reverse and name sort at same time
     if (this.orderBy === 'reverse') {
       bookmarks.reverse();
     } else if (this.orderBy === 'name') {
