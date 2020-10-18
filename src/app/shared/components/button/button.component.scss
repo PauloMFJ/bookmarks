@@ -17,7 +17,7 @@
     padding: 0 8px;
     text-decoration: none; /* Remove default hyperlink decorations */
     transition: all $transition-speed ease-in-out;
-    white-space: nowrap;
+    white-space: nowrap; /* Prevent line wrapping */
 
     /* MEDIUM size buttons */
     &.md {
@@ -78,22 +78,6 @@
       }
     }
 
-    /* ACTIVE state (If not disabled) */
-    &:not(:disabled).active {
-      &.clear,
-      &.white,
-      &.light,
-      &.gray {
-        background: $primary;
-
-        /* Hover/focus state */
-        &:hover,
-        &:focus {
-          opacity: .5;
-        }
-      }
-    }
-
     /* DANGER button */
     &.danger {
       background: $red;
@@ -121,6 +105,28 @@
           opacity: .5;
         }
       }
+    }
+
+    /* ACTIVE state (If not disabled) */
+    &:not(:disabled).active {
+      &.clear,
+      &.white,
+      &.light,
+      &.gray {
+        background: $primary;
+
+        /* Hover/focus state */
+        &:hover,
+        &:focus {
+          opacity: .5;
+        }
+      }
+    }
+
+    /* Make button full width and left align content */
+    &.full-width {
+      justify-content: flex-start;
+      width: 100%;
     }
 
     /* If active, show click down animation */

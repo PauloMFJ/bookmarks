@@ -1,7 +1,7 @@
 <button class="{{ type }} {{ size }}"
-        [class.active]="active"
+        [ngClass]="{ 'active': active, 'full-width': fullWidth }"
         (click)="onClick($event)"
-        (keyup.enter)="onClick()"
+        (keyup.enter)="onClick($event)"
         [disabled]="disabled"
         [attr.aria-label]="ariaLabel"
         tabindex="{{ disabled ? '-1' : tabIndex }}">{{ label }}

@@ -68,10 +68,16 @@ export class ButtonComponent {
   @Input() stopPropagation: boolean;
 
   /**
-   * Event emitter used to listen to click and keyup.enter events.
-   * @param {boolean} clicked Emits 'true' on click event.
+   * Used to make button fit full size of container.
+   * @type {boolean}
    */
-  @Output() clicked = new EventEmitter<boolean>();
+  @Input() fullWidth: boolean;
+
+  /**
+   * Event emitter used to listen to click and keyup.enter events.
+   * @param {EventEmitter<any>} clicked Emits click event.
+   */
+  @Output() clicked = new EventEmitter<any>();
 
   constructor() { }
 
@@ -80,14 +86,14 @@ export class ButtonComponent {
    * @param {any=} event Used to stopPropagation if enabled.
    */
   onClick(event?: any): void {
-    // If button isn't disabled, emit clicked event
-    if (!this.disabled) {
-      this.clicked.emit(true);
-    }
-
     // If stopPropagation is true, prevent clicks from bubbling
     if (event && this.stopPropagation) {
       event.stopPropagation();
+    }
+
+    // If button isn't disabled, emit clicked event
+    if (!this.disabled) {
+      this.clicked.emit(event);
     }
   }
 }
