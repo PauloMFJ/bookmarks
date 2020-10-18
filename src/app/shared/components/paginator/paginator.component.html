@@ -1,0 +1,42 @@
+<!-- First Page -->
+<app-button type="clear"
+            label="First"
+            class="hide-xs-down"
+            [disabled]="pagination.currentPage === 1"
+            (clicked)="setPage(1)">
+</app-button>
+
+<!-- Back -->
+<app-button type="clear"
+            [disabled]="pagination.currentPage === 1"
+            (clicked)="setPage(pagination.currentPage - 1)">
+  <div content>
+    <svg-icon src="assets/images/arrow-left.svg" class="display-flex"></svg-icon>
+  </div>
+</app-button>
+
+<!-- Pages -->
+<app-button *ngFor="let page of pagination.paginatorList"
+            type="clear"
+            [label]="page"
+            [disabled]="pagination.totalPages === 1"
+            [active]="pagination.currentPage === page"
+            (clicked)="setPage(page)">
+</app-button>
+
+<!-- Next -->
+<app-button type="clear"
+            [disabled]="pagination.currentPage === pagination.totalPages"
+            (clicked)="setPage(pagination.currentPage + 1)">
+  <div content>
+    <svg-icon src="assets/images/arrow-right.svg" class="display-flex"></svg-icon>
+  </div>
+</app-button>
+
+<!-- Last Page -->
+<app-button type="clear"
+            label="Last"
+            class="hide-xs-down"
+            [disabled]="pagination.currentPage === pagination.totalPages"
+            (clicked)="setPage(pagination.totalPages)">
+</app-button>

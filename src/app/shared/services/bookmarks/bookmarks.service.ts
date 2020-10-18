@@ -15,7 +15,7 @@ export class BookmarksService {
   private bookmarks_: Bookmark[];
 
   /**
-   * Bookmarks subject used to store local app bookmarks, behaviour varient used
+   * Bookmarks subject used to trigger subject events, behaviour varient used
    *     as by default it always returns data on subscribe() events.
    *     On load DEFAULTS to an empty array.
    * @private {BehaviorSubject}
@@ -79,6 +79,7 @@ export class BookmarksService {
     } else {
       this.bookmarks_.push(bookmarks);
     }
+
     // Save changes
     this.save_();
   }

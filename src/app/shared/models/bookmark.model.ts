@@ -1,7 +1,7 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 /**
- * Model class used to define a unique bookmark object.
+ * Model class used to define a new bookmark object.
  */
 export class Bookmark {
 

@@ -13,7 +13,7 @@ import { ResultComponent } from './shared/views/result/result.component';
 import { BookmarkComponent } from './shared/components/bookmarks/bookmark/bookmark.component';
 import { BookmarksComponent } from './shared/components/bookmarks/bookmarks/bookmarks.component';
 import { SearchBarComponent } from './shared/components/search-bar/search-bar.component';
-import { PaginationComponent } from './shared/components/pagination/pagination.component';
+import { PaginatorComponent } from './shared/components/paginator/paginator.component';
 import { ButtonComponent } from './shared/components/button/button.component';
 import { BookmarkFormComponent } from './shared/components/bookmarks/bookmark-form/bookmark-form.component';
 import { PageNotFoundComponent } from './shared/views/page-not-found/page-not-found.component';
@@ -28,7 +28,7 @@ import { AddBookmarkComponent } from './shared/components/bookmarks/add-bookmark
     BookmarkComponent,
     BookmarksComponent,
     SearchBarComponent,
-    PaginationComponent,
+    PaginatorComponent,
     ButtonComponent,
     BookmarkFormComponent,
     PageNotFoundComponent,

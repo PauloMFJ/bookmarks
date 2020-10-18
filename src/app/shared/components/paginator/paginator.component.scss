@@ -1,0 +1,32 @@
+@import '~src/assets/styles/variables';
+@import '~src/assets/styles/media-queries';
+
+:host {
+  --margin: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--margin); /* Inner padding */
+
+  > * {
+    margin: var(--margin); /* Outer margin, with previous keeps 16px spacings */
+  }
+
+  /* Apply margin transition on change */
+  &,
+  > * {
+    transition: margin $transition-speed ease-in-out;
+  }
+}
+
+@include media-breakpoint-below(md) {
+  :host {
+    --margin: 2px; /* Reduce margin on smaller screens */
+  }
+}
+
+@include media-breakpoint-below(xs) {
+  .hide-xs-down {
+    display: none; /* Hide back and forward buttons xs down */
+  }
+}
