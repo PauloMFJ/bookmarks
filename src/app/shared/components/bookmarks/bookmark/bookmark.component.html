@@ -17,9 +17,11 @@
                   (clicked)="toggleFavourite()"
                   [stopPropagation]="true"
                   [active]="bookmark.favourited"
+                  [ariaLabel]="bookmark.favourited ? 'Favourite' : 'Unfavourite'"
                   [tabIndex]="edit ? '0' : '-1'">
         <div content>
-          <svg-icon src="assets/images/favourite.svg" class="display-flex"></svg-icon>
+          <svg-icon src="assets/images/favourite.svg"
+                    class="display-flex"></svg-icon>
         </div>
       </app-button>
 
@@ -28,9 +30,11 @@
                   (clicked)="toggleEdit()"
                   [active]="edit"
                   [stopPropagation]="true"
+                  [ariaLabel]="edit ? 'Open Edit' : 'Hide Edit'"
                   [tabIndex]="edit ? '0' : '-1'">
         <div content>
-          <svg-icon src="assets/images/edit.svg" class="display-flex"></svg-icon>
+          <svg-icon src="assets/images/edit.svg"
+                    class="display-flex"></svg-icon>
         </div>
       </app-button>
 
@@ -38,9 +42,11 @@
       <app-button type="clear"
                   (clicked)="delete()"
                   [stopPropagation]="true"
+                  ariaLabel="Delete"
                   [tabIndex]="edit ? '0' : '-1'">
         <div content>
-          <svg-icon src="assets/images/delete.svg" class="display-flex"></svg-icon>
+          <svg-icon src="assets/images/delete.svg"
+                    class="display-flex"></svg-icon>
         </div>
       </app-button>
     </div>

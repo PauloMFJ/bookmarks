@@ -1,13 +1,9 @@
-<div class="button {{ type }} {{ size }}"
-     [ngClass]="{ 'active': active, 'disabled': disabled }"
-     (click)="onClick($event)"
-     (keyup.enter)="onClick()"
-     tabindex="{{ disabled ? '-1' : tabIndex }}">
-  <!-- If label, show -->
-  <span *ngIf="label; else custom">{{ label }}</span>
-
-  <!-- Else, allow custom -->
-  <ng-template #custom>
-    <ng-content select="[content]"></ng-content>
-  </ng-template>
-</div>
+<button class="{{ type }} {{ size }}"
+        [class.active]="active"
+        (click)="onClick($event)"
+        (keyup.enter)="onClick()"
+        [disabled]="disabled"
+        [ariaLabel]="ariaLabel"
+        tabindex="{{ disabled ? '-1' : tabIndex }}">{{ label }}
+  <ng-content select="[content]"></ng-content>
+</button>

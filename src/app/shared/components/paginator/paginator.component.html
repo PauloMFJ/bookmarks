@@ -11,7 +11,8 @@
             [disabled]="pagination.currentPage === 1"
             (clicked)="setPage(pagination.currentPage - 1)">
   <div content>
-    <svg-icon src="assets/images/arrow-left.svg" class="display-flex"></svg-icon>
+    <svg-icon src="assets/images/arrow-left.svg"
+              class="display-flex"></svg-icon>
   </div>
 </app-button>
 
@@ -29,7 +30,8 @@
             [disabled]="pagination.currentPage === pagination.totalPages"
             (clicked)="setPage(pagination.currentPage + 1)">
   <div content>
-    <svg-icon src="assets/images/arrow-right.svg" class="display-flex"></svg-icon>
+    <svg-icon src="assets/images/arrow-right.svg"
+              class="display-flex"></svg-icon>
   </div>
 </app-button>
 

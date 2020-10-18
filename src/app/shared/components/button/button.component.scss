@@ -1,22 +1,20 @@
 @import '~src/assets/styles/variables';
 
-.button {
+button {
   align-items: center;
+  background: transparent; /* Clear default button background */
   border-radius: $border-radius;
+  border: 0; /* Remove default button border */
   cursor: pointer;
   display: flex;
   font-family: $roboto;
+  font-size: 16px;
   justify-content: center;
   outline: none; /* Remove default browser focus behaviour */
   padding: 0 8px;
   text-decoration: none; /* Remove default hyperlink decorations */
   transition: all $transition-speed ease-in-out;
   white-space: nowrap;
-
-  /* If active, show click down animation */
-  &:active {
-    transform: translateY(2px);
-  }
 
   /* MEDIUM size buttons */
   &.md {
@@ -31,7 +29,7 @@
   }
 
   /* CLEAR button (If not disabled) */
-  &.clear:not(.disabled) {
+  &.clear:not(:disabled) {
     &:hover,
     &:focus {
       background: $light;
@@ -43,7 +41,7 @@
     background: $white;
 
     /* Hover/focus state (If not disabled) */
-    &:not(.disabled) {
+    &:not(:disabled) {
       &:hover,
       &:focus {
         background: $gray;
@@ -56,7 +54,7 @@
     background: $light;
 
     /* Hover/focus state (If not disabled) */
-    &:not(.disabled) {
+    &:not(:disabled) {
       &:hover,
       &:focus {
         background: $gray;
@@ -64,11 +62,25 @@
     }
   }
 
+  /* GRAY button */
+  &.gray {
+    background: $gray;
+
+    /* Hover/focus state (If not disabled) */
+    &:not(:disabled) {
+      &:hover,
+      &:focus {
+        background: $dark;
+      }
+    }
+  }
+
   /* ACTIVE state (If not disabled) */
-  &:not(.disabled).active {
+  &:not(:disabled).active {
     &.clear,
     &.white,
-    &.light {
+    &.light,
+    &.gray {
       background: $primary;
 
       /* Hover/focus state */
@@ -84,7 +96,7 @@
     background: $red;
 
     /* Hover/focus state (If not disabled) */
-    &:not(.disabled) {
+    &:not(:disabled) {
       &:hover,
       &:focus {
         opacity: .5;
@@ -94,13 +106,13 @@
 
   /* GRADIENT button */
   &.gradient {
-    animation: gradient 10s ease infinite; /* Use gradient animation */
+    animation: gradient 8s ease infinite; /* Use gradient animation */
     background-size: 200% 100%; /* Larger background size used for animation */
     background: linear-gradient(135deg, $primary, $purple); /* Gradient background */
     color: $white;
 
     /* Hover/focus state (If not disabled) */
-    &:not(.disabled) {
+    &:not(:disabled) {
       &:hover,
       &:focus {
         opacity: .5;
@@ -108,8 +120,13 @@
     }
   }
 
+  /* If active, show click down animation */
+  &:active {
+    transform: translateY(2px);
+  }
+
   /* DISABLED state */
-  &.disabled {
+  &:disabled {
     pointer-events: none; /* Disable pointer events */
     opacity: .25;
   }

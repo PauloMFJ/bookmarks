@@ -14,16 +14,23 @@ export class ButtonComponent {
   @Input() label: string;
 
   /**
+   * aria-label to show inside button, for accessibility required if label isn't provided.
+   * @type {string}
+   */
+  @Input() ariaLabel: string;
+
+  /**
    * Type of button, DEFAULTS to 'clear', supports following strings:
    *
    *  - 'clear'.
    *  - 'light'.
    *  - 'white'.
+   *  - 'gray'
    *  - 'danger'
    *  - 'gradient'
    * @type {string}
    */
-  @Input() type: 'clear' | 'white' | 'light' | 'danger' | 'gradient' = 'clear';
+  @Input() type: 'clear' | 'white' | 'light' | 'gray' | 'danger' | 'gradient' = 'clear';
 
   /**
    * Button size, DEFAULTS to 'md', supports following strings:
