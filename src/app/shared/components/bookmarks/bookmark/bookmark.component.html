@@ -1,10 +1,10 @@
-<div class="card transition"
+<div class="card has-click-event"
      [class.editing]="edit"
      (click)="navigateToUrl()"
      (keydown.enter)="navigateToUrl()"
      tabindex="0">
+  <!-- Body -->
   <div class="card-body">
-    <!-- Details -->
     <div class="details-container">
       <div class="name">{{ bookmark.name }}</div>
       <div class="url transition">{{ bookmark.url }}</div>
@@ -47,9 +47,8 @@
     </div>
   </div>
 
+  <!-- Edit form -->
   <!-- TODO: Animate *ngIf with accordion -->
-  <div *ngIf="edit"
-       class="card-footer">
-    <app-bookmark-form [bookmark]="bookmark"></app-bookmark-form>
-  </div>
+  <app-bookmark-form *ngIf="edit"
+                     [bookmark]="bookmark"></app-bookmark-form>
 </div>

@@ -1,22 +1,6 @@
-@import '~src/assets/styles/variables';
 
 :host {
   display: block;
   width: 100%;
-
-  // TODO: Extract card out into its own resuable component
-  .card {
-    background: $light;
-    border-left: 12px solid $primary;
-    border-radius: $border-radius;
-    box-shadow: 4px 4px 8px rgba($black, .05);
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 16px;
-
-    .card-header {
-      padding: 16px 16px 0 16px; /* Provide padding except below */
-    }
-  }
 }
 
