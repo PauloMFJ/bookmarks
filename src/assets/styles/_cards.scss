@@ -2,9 +2,8 @@
 /* Cards */
 .card {
   --border-opacity: 1; /* Used to dynamically change border opacity */
-  --box-shadow-opacity: .1; /* Used to dynamically change box-shadow opacity */
+  --box-shadow-opacity: .05; /* Used to dynamically change box-shadow opacity */
   --box-shadow-position: 4px; /* Used to dynamically change box-shadow top/left positions */
-
   background: $light;
   border-left: 12px solid rgba($primary, var(--border-opacity));
   border-radius: $border-radius;
@@ -16,19 +15,16 @@
   outline: none; /* Remove default browser focus behaviour */
   text-decoration: none; /* Remove default hyperlink decorations */
   transition: all $transition-speed ease-in-out;
+
   /* Card header */
   .card-header {
-    padding: 16px 16px 0 16px; /* Provide padding except below */
+    padding: 16px 16px 0 16px; /* Provide padding except below, assumes content will include margin-bottom */
   }
 
   /* Card body */
   .card-body {
-    align-items: center;
     background: $white;
     border-radius: 0 $border-radius $border-radius 0; /* Rounded corners top-right and bottom-right */
-    display: flex;
-    height: 48px;
-    justify-content: space-between;
     padding: 0 16px;
   }
 
