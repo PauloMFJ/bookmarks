@@ -72,7 +72,8 @@ export class OverviewComponent implements OnDestroy {
 
   /**
    * Method to take a given page, and set new pagination object containing new pagedList.
-   * @param {number} page Current page to paginate on.
+   * @param {number} page        Current page to paginate on.
+   * @param {string=} searchTerm Optional search term used to filter bookmarks with.
    */
   getPagedList(page: number, searchTerm?: string) {
     // Create copy of bookmarks
@@ -90,14 +91,6 @@ export class OverviewComponent implements OnDestroy {
 
     // Get pagination
     this.pagination = this.paginationService_.getPagedList(bookmarks, page);
-  }
-
-  /**
-   * Method to handle and search bookmarks by search change events.
-   * @param {string} searchTerm Search term to search bookmarks with.
-   */
-  onSearchChanged(searchTerm: string) {
-    this.getPagedList(1, searchTerm);
   }
 
   /**
