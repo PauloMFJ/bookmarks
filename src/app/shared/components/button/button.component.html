@@ -3,7 +3,7 @@
         (click)="onClick($event)"
         (keyup.enter)="onClick()"
         [disabled]="disabled"
-        [ariaLabel]="ariaLabel"
+        [attr.aria-label]="ariaLabel"
         tabindex="{{ disabled ? '-1' : tabIndex }}">{{ label }}
   <ng-content select="[content]"></ng-content>
 </button>
