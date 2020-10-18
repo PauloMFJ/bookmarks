@@ -45,7 +45,7 @@ export class ResultComponent implements OnDestroy {
   /**
    * Method used to unsubscribe from used subscription when instance is destroyed.
    */
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 

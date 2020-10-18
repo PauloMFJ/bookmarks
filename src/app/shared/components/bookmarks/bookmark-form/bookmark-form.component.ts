@@ -3,15 +3,19 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { BookmarksService } from '@app/shared/services/bookmarks/bookmarks.service';
 import { Bookmark } from '@app/shared/models/bookmark.model';
 import { Router } from '@angular/router';
-import { FadeAnimation } from '@app/shared/animations/fade.component';
 
 @Component({
   selector: 'app-bookmark-form',
   templateUrl: './bookmark-form.component.html',
-  animations: [ FadeAnimation ],
   styleUrls: ['./bookmark-form.component.scss']
 })
 export class BookmarkFormComponent implements OnInit {
+
+  /**
+   * URL error message string.
+   * @type {string}
+   */
+  urlErrorMessage: string;
 
   /**
    * Used to define if bookmark existed before form or not, DEFAULTS to 'false'.
@@ -43,7 +47,7 @@ export class BookmarkFormComponent implements OnInit {
       private router_: Router) { }
 
   /**
-   * ngOnInit after Inputs have loaded, allows us to create a new bookmark, or create
+   * ngOnInit after Inputs have loaded, allows to create a new bookmark, or create
    *     formGroup based on input.
    */
   ngOnInit(): void {
@@ -64,26 +68,38 @@ export class BookmarkFormComponent implements OnInit {
    * @param {any=} event Used to stopPropagation.
    */
   submit(event?: any): void {
-    // If event, prevent clicks from bubbling
+    // If event, prevent events from bubbling
     if (event) {
       event.stopPropagation();
     }
 
     if (this.formGroup.valid) {
-      // Get updated bookmark from formGroup
       this.bookmark.from(this.formGroup);
 
-      // Add bookmark, and route to result page if bookmark didn't exist beforehand
-      if (!this.exists) {
-        this.bookmarksService_.add(this.bookmark);
-        this.router_.navigate(['/result', this.bookmark.id]);
-      }
-      // Else, update existing bookmark with new changes
-      else {
-        this.bookmarksService_.update(this.bookmark.id, this.bookmark, true);
-      }
+      // Get url using no-cors mode
+      fetch(this.bookmark.url, { mode: 'no-cors' })
+        .then((response) => {
+          // If success
+          if (response.status === 200 || response.status === 0) {
+            // Add bookmark, and route to result page if bookmark didn't exist beforehand
+            if (!this.exists) {
+              this.bookmarksService_.add(this.bookmark);
+              this.router_.navigate(['/result', this.bookmark.id]);
+            }
+
+            // Else, update existing bookmark with new changes
+            else {
+              this.bookmarksService_.update(this.bookmark.id, this.bookmark, true);
+            }
+          }
+
+          // Else log error
+          else {
+            this.formGroup.controls['url'].setErrors({ 'invalidurl': true });
+          }
+        })
+        .catch((error) => console.log('Url Fetch Error: ', error));
     }
-    // TODO: Implement else error handling
   }
 
 }

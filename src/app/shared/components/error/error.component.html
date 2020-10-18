@@ -1,0 +1,5 @@
+<div *ngIf="error && control?.invalid && (control?.dirty || control?.touched)"
+     [@fade]
+     class="error"
+     [innerHtml]="error">
+</div>
