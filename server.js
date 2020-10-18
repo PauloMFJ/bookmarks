@@ -7,7 +7,7 @@ const app = express();
 app.use(express.static(__dirname + '/dist/bookmarks'));
 
 app.get('/*', function(req,res) {
-  const index = path.join(__dirname, 'build', 'index.html');
+  const index = path.join(__dirname + '/dist/bookmarks/index.html');
   res.sendFile(index);
 });
 
