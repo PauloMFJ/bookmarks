@@ -107,7 +107,7 @@ button {
   /* GRADIENT button */
   &.gradient {
     animation: gradient 8s ease infinite; /* Use gradient animation */
-    background-size: 200% 100%; /* Larger background size used for animation */
+    background-size: 200% 100% !important; /* Larger background size used for animation */
     background: linear-gradient(135deg, $primary, $purple); /* Gradient background */
     color: $white;
 
