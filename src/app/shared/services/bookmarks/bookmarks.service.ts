@@ -54,7 +54,7 @@ export class BookmarksService {
    * @param {string} id ID of bookmark to find and return.
    * @return {Bookmark}
    */
-  find(id: string) {
+  find(id: string): Bookmark {
     // Get bookmarks
     this.bookmarks_ = this.localStorageService_.getItem(this.cookieName);
 
@@ -73,7 +73,7 @@ export class BookmarksService {
 
     // If input is an array, concat array to existing bookmarks
     if (Array.isArray(bookmarks)) {
-      this.bookmarks_ = this.bookmarks_.concat(bookmarks);
+      this.bookmarks_.push(...bookmarks);
 
     // Else push indivudal bookmark to start of array
     } else {
