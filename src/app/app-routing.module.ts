@@ -7,6 +7,11 @@ import { PageNotFoundComponent } from '@app/shared/views/page-not-found/page-not
 const routes: Routes = [
     {
         path: '',
+        redirectTo: 'overview',
+        pathMatch: 'full',
+    },
+    {
+        path: 'overview',
         pathMatch: 'full',
         component: OverviewComponent,
     },
