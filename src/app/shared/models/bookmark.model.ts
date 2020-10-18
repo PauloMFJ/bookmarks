@@ -30,6 +30,18 @@ export class Bookmark {
     favourited: boolean;
 
     /**
+     * URL regex used to validate url form inputs. Referenced from:
+     *     https://stackoverflow.com/questions/5717093/check-if-a-javascript-string-is-a-url/5717133#5717133
+     * @private {RegExp}
+     */
+    private readonly urlRegex = new RegExp('^(https?:\\/\\/)?' + // Protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' +     // Domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))' +                          // OR ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' +                      // Port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?' +                             // Query string
+        '(\\#[-a-z\\d_]*)?$','i');                               // Fragment locator
+
+    /**
      * Contructor used to create new Bookmark object.
      * @param {string=}  name       A custom url name.
      * @param {string=}  url        A destination url of bookmark.
@@ -52,8 +64,7 @@ export class Bookmark {
     getForm(formBuilder: FormBuilder) {
       return formBuilder.group({
         name: [this.name, [Validators.required, Validators.maxLength(255)]],
-        // TODO: Implement url validation regex
-        url: [this.url, [Validators.required]],
+        url: [this.url, [Validators.required, Validators.pattern(this.urlRegex)]],
         favourited: [this.favourited],
       });
     }
