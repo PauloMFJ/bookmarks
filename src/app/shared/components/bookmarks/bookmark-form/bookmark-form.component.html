@@ -1,31 +1,37 @@
 <form [formGroup]="formGroup">
-  <div class="field">
-    <label for="name">Website Name</label>
-    <input type="text"
-           formControlName="name"
-           id="name"
-           placeholder="Website Name..."
-           autocomplete="off"
-           (keydown.enter)="submit(); $event.stopPropagation()">
-    <!-- TODO: Implement error message -->
-  </div>
+    <div class="field">
+      <!-- Error message -->
+      <div *ngIf="formGroup.controls['name'].invalid && (formGroup.controls['name'].dirty || formGroup.controls['name'].touched)"
+           class="error">Field is not valid.</div>
 
-  <div class="field">
-    <label for="url">URL</label>
-    <input type="text"
-           formControlName="url"
-           id="url"
-           placeholder="URL..."
-           autocomplete="off"
-           (keydown.enter)="submit(); $event.stopPropagation()">
-    <!-- TODO: Implement error message -->
-  </div>
+      <!-- Name input -->
+      <input type="text"
+             formControlName="name"
+             aria-label="Website Name"
+             placeholder="Website Name..."
+             autocomplete="off"
+             (keydown.enter)="submit($event)">
+    </div>
 
-  <app-button type="gray"
-              [label]="exists ? 'Save' : 'Add'"
-              [disabled]="formGroup.invalid"
-              [active]="!formGroup.invalid"
-              [stopPropagation]="true"
-              (clicked)="submit()">
-  </app-button>
+    <div class="field">
+      <!-- Error message -->
+      <div *ngIf="formGroup.controls['url'].invalid && (formGroup.controls['url'].dirty || formGroup.controls['url'].touched)"
+           class="error">Field is not valid.</div>
+
+      <!-- URL input -->
+      <input type="text"
+             formControlName="url"
+             aria-label="URL"
+             placeholder="URL..."
+             autocomplete="off"
+             (keydown.enter)="submit($event)">
+    </div>
+
+    <app-button type="gray"
+                [label]="exists ? 'Save' : 'Add'"
+                [disabled]="formGroup.invalid"
+                [active]="!formGroup.invalid"
+                [stopPropagation]="true"
+                (clicked)="submit()">
+    </app-button>
 </form>
