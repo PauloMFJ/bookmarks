@@ -1,4 +1,5 @@
 <!-- If has bookmarks, show -->
+<!-- TODO: Implement staggered load animation -->
 <div *ngIf="bookmarks?.length; else error"
      class="bookmarks-container">
   <app-bookmark *ngFor="let bookmark of bookmarks"
