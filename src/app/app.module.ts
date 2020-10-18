@@ -21,7 +21,8 @@ import { ButtonComponent } from './shared/components/button/button.component';
 import { BookmarkFormComponent } from './shared/components/bookmarks/bookmark-form/bookmark-form.component';
 import { PageNotFoundComponent } from './shared/views/page-not-found/page-not-found.component';
 import { AddBookmarkComponent } from './shared/components/bookmarks/add-bookmark/add-bookmark.component';
-import { SortByComponent } from './shared/components/sort-by/sort-by.component';
+import { OrderByComponent } from './shared/components/order-by/order-by.component';
+import { ErrorComponent } from './shared/components/error/error.component';
 
 @NgModule({
   imports: [
@@ -45,7 +46,8 @@ import { SortByComponent } from './shared/components/sort-by/sort-by.component';
     BookmarkFormComponent,
     PageNotFoundComponent,
     AddBookmarkComponent,
-    SortByComponent,
+    OrderByComponent,
+    ErrorComponent
   ],
   providers: [ ],
   bootstrap: [

@@ -30,6 +30,6 @@
                 [disabled]="formGroup.invalid"
                 [active]="!formGroup.invalid"
                 [stopPropagation]="true"
-                (clicked)="submit()">
+                (clicked)="submit($event)">
     </app-button>
 </form>

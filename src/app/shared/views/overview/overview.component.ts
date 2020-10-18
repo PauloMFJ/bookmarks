@@ -26,12 +26,6 @@ export class OverviewComponent implements OnDestroy {
   private readonly itemsPerPage_ = environment.config.pagination.itemsPerPage;
 
   /**
-   * If bookmarks are currently being filtered by favourites (true), or not (false).
-   * @type {Boolean}
-   */
-  filterByFavourites = false;
-
-  /**
    * Full List of bookmarks.
    * @type {Bookmark[]}
    */
@@ -42,6 +36,24 @@ export class OverviewComponent implements OnDestroy {
    * @type {Pagination}
    */
   pagination: Pagination<Bookmark>;
+
+  /**
+   * If bookmarks are currently being filtered by favourites (true), or not (false).
+   * @type {Boolean}
+   */
+  filterByFavourites = false;
+
+  /**
+   * Current value of search bar.
+   * @type {string}
+   */
+  searchTerm: string;
+
+  /**
+   * Defines current ordering.
+   * @param {string}
+   */
+  orderBy: string;
 
   /**
    * Bookmarks service subscription.
@@ -75,9 +87,9 @@ export class OverviewComponent implements OnDestroy {
    * @param {number} page        Current page to paginate on.
    * @param {string=} searchTerm Optional search term used to filter bookmarks with.
    */
-  getPagedList(page: number, searchTerm?: string) {
+  getPagedList(page: number) {
     // Create copy of bookmarks
-    let bookmarks = this.bookmarks;
+    let bookmarks = [...this.bookmarks];
 
     // Filter by favourites
     if (this.filterByFavourites) {
@@ -85,12 +97,38 @@ export class OverviewComponent implements OnDestroy {
     }
 
     // Filter by searchTerm
-    if (searchTerm) {
-      bookmarks = this.bookmarks.filter((bookmark) => bookmark.name.includes(searchTerm) || bookmark.url.includes(searchTerm));
+    if (this.searchTerm) {
+      bookmarks = bookmarks.filter((bookmark) => bookmark.name.includes(this.searchTerm) || bookmark.url.includes(this.searchTerm));
+    }
+
+    console.log(this.orderBy, this.bookmarks);
+    // Order list
+    if (this.orderBy === 'reverse') {
+      bookmarks.reverse();
+    } else if (this.orderBy === 'name') {
+      bookmarks.sort((a, b) => a.name > b.name ? 1 : -1);
     }
 
     // Get pagination
     this.pagination = this.paginationService_.getPagedList(bookmarks, page);
+  }
+
+  /**
+   * Method used to get and set searchTerm changes.
+   * @param {string} searchTerm Search term used to filter bookmarks with.
+   */
+  onSearchChanged(searchTerm: string) {
+    this.searchTerm = searchTerm;
+    this.getPagedList(1);
+  }
+
+  /**
+   * Method used to get and set current order by changes.
+   * @param {string} orderBy Current order used to sort bookmarks with.
+   */
+  onOrderByChanged(orderBy: string) {
+    this.orderBy = orderBy;
+    this.getPagedList(1);
   }
 
   /**

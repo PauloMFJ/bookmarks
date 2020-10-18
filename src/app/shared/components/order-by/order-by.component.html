@@ -1,0 +1,36 @@
+<div class="order-by-container">
+  <label>Order By</label>
+
+  <app-button type="light"
+              [label]="label"
+              (clicked)="toggleDropdown()">
+  </app-button>
+
+  <!-- Dropdown -->
+  <div class="dropdown transition"
+       [class.show]="show">
+    <app-button type="clear"
+                [fullWidth]="true"
+                label="Recently Added (New to Old)"
+                [active]="orderBy === undefined"
+                (clicked)="setOrderBy(undefined, 'Default (New to Old)')"
+                [tabIndex]="show ? '0' : '-1'">
+    </app-button>
+
+    <app-button type="clear"
+                [fullWidth]="true"
+                label="Recently Added (Old to New)"
+                [active]="orderBy === 'reverse'"
+                (clicked)="setOrderBy('reverse', 'Recently Added (Old to New)')"
+                [tabIndex]="show ? '0' : '-1'">
+    </app-button>
+
+    <app-button type="clear"
+                [fullWidth]="true"
+                label="Alphabetically (Z to A)"
+                [active]="orderBy === 'name'"
+                (clicked)="setOrderBy('name', 'Alphabetically (Z to A)')"
+                [tabIndex]="show ? '0' : '-1'">
+    </app-button>
+  </div>
+</div>

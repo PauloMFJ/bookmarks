@@ -1,0 +1,40 @@
+@import '~src/assets/styles/variables';
+
+:host {
+  display: block;
+
+  .order-by-container {
+    align-items: center;
+    display: flex;
+    position: relative; /* Required for dropdown absolute positioning */
+
+    label {
+      font-size: 14px;
+      margin-right: 8px;
+      white-space: nowrap; /* Prevent line wrapping */
+    }
+
+    .dropdown {
+      background: $white;
+      border-radius: $border-radius;
+      box-shadow: 0px 0px 8px rgba($black, .1);
+      padding: 8px;
+      position: absolute;
+      right: 0;
+      top: $input-size + 8px; /* Position 8px below button */
+
+      /* Hidden state, used to animate dropdown in */
+      &:not(.show) {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(4px);
+      }
+
+      /* Seperate content */
+      > *:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
+

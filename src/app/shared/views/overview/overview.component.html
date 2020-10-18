@@ -5,11 +5,11 @@
   <div id="controls-container">
     <!-- Search bar -->
     <app-search-bar placeholder="Search Bookmarks..."
-                    (searchChanged)="getPagedList(1, $event)">
+                    (searchChanged)="onSearchChanged($event)">
     </app-search-bar>
 
-    <!-- TODO: Implement <app-sort-by></app-sort-by> -->
-
+    <!-- Order by -->
+    <app-order-by (orderByChanged)="onOrderByChanged($event)"></app-order-by>
 
     <!-- Filter by favourites -->
     <!-- TODO: Extract favourite icon into its own reusable component -->
