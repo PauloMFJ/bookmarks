@@ -20,9 +20,10 @@ const routes: Routes = [
         pathMatch: 'full',
         component: ResultComponent,
     },
-    // If path doesnt match previous, fallback to page not found
+    // Fallback when no prior routes is matched
     {
         path: '**',
+        pathMatch: 'full',
         component: PageNotFoundComponent,
     },
 ];
