@@ -1,10 +1,14 @@
+/* Angular */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+/* External */
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
+/* App */
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LogoComponent } from './shared/components/logo/logo.component';
@@ -17,8 +21,18 @@ import { ButtonComponent } from './shared/components/button/button.component';
 import { BookmarkFormComponent } from './shared/components/bookmarks/bookmark-form/bookmark-form.component';
 import { PageNotFoundComponent } from './shared/views/page-not-found/page-not-found.component';
 import { AddBookmarkComponent } from './shared/components/bookmarks/add-bookmark/add-bookmark.component';
+import { SortByComponent } from './shared/components/sort-by/sort-by.component';
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    AngularSvgIconModule.forRoot()
+  ],
   declarations: [
     AppComponent,
     LogoComponent,
@@ -30,15 +44,8 @@ import { AddBookmarkComponent } from './shared/components/bookmarks/add-bookmark
     ButtonComponent,
     BookmarkFormComponent,
     PageNotFoundComponent,
-    AddBookmarkComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    AngularSvgIconModule.forRoot()
+    AddBookmarkComponent,
+    SortByComponent,
   ],
   providers: [ ],
   bootstrap: [
