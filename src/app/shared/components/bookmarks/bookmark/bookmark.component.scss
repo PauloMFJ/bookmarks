@@ -9,65 +9,78 @@
     --border-opacity: .5; /* Used to dynamically change border opacity */
     --box-shadow-opacity: .05; /* Used to dynamically change box-shadow opacity */
     --box-shadow-position: 2px; /* Used to dynamically change box-shadow top/left positions */
-    align-items: center;
+    background: $light;
     border-left: 12px solid rgba($primary, var(--border-opacity));
     border-radius: $border-radius;
     box-shadow: var(--box-shadow-position) var(--box-shadow-position) 8px rgba($black, var(--box-shadow-opacity));
     color: inherit; /* Inherit colour to prevent default hyperlink colour */
     cursor: pointer;
     display: flex;
-    height: 48px;
-    justify-content: space-between;
+    flex-direction: column;
     outline: none; /* Remove default browser focus behaviour */
-    padding: 0 16px;
     text-decoration: none; /* Remove default hyperlink decorations */
 
-    .details {
-      overflow: hidden; /* Hide content on overflow */
-
-      > * {
-        /* Show ellipsis on overflow */
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-
-      .name {
-        font-weight: bold;
-      }
-
-      .url {
-        font-size: 12px;
-        height: 0; /* Used to hide url */
-        line-height: 16px;
-        opacity: 0; /* Used to fade url in */
-      }
-    }
-
-    .controls {
+    .card-body {
+      align-items: center;
+      background: $white;
+      border-radius: 0 $border-radius $border-radius 0; /* Rounded corners top-right and bottom-right */
       display: flex;
-      opacity: .1;
+      height: 48px;
+      justify-content: space-between;
+      padding: 0 16px;
 
-      /*Kkeep spacing between controls (Ignores last control) */
-      > *:not(:last-child) {
-        margin-right: 4px;
+      /* DETAILS */
+      .details-container {
+        overflow: hidden; /* Hide content on overflow */
+
+        > * {
+          /* Show ellipsis on overflow */
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .name {
+          font-weight: bold;
+        }
+
+        .url {
+          font-size: 12px;
+          height: 0; /* Used to hide url */
+          line-height: 16px;
+          opacity: 0; /* Used to fade url in */
+        }
+      }
+
+      /* CONTROLS */
+      .controls-container {
+        display: flex;
+        opacity: .1;
+
+        /*Kkeep spacing between controls (Ignores last control) */
+        > *:not(:last-child) {
+          margin-right: 4px;
+        }
       }
     }
 
     &:hover,
-    &:focus {
+    &:focus,
+    &.editing {
       --border-opacity: 1;
       --box-shadow-opacity: .1;
       --box-shadow-position: 4px;
       transform: translateY(-4px);
 
-     .details .url {
-        height: 16px; /* Transform url in */
-        opacity: 1; /* Fade url in */
-      }
+      .card-body {
+        .details-container .url {
+          height: 16px; /* Transform url in */
+          opacity: 1; /* Fade url in */
+        }
 
-      .controls {
-        opacity: 1;
+        .controls-container {
+          opacity: 1;
+        }
       }
     }
   }

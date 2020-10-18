@@ -5,32 +5,17 @@
   display: block;
   width: 100%;
 
-  // TODO: Extract card out into its own resuable component
-  .card {
-    background: $light;
-    border-left: 12px solid $primary;
-    border-radius: $border-radius;
-    box-shadow: 4px 4px 8px rgba($black, .05);
+  input {
+    background: $white;
+  }
+
+  form {
+    align-items: flex-end;
     display: flex;
-    flex-direction: column;
-    margin-bottom: 16px;
+    padding: 8px; /* Inner padding */
 
-    .card-header {
-      padding: 16px 16px 0 16px; /* Provide padding except below */
-    }
-
-    input {
-      background: $white;
-    }
-
-    form {
-      align-items: flex-end;
-      display: flex;
-      padding: 8px; /* Inner padding */
-
-      > * {
-        margin: 8px; /* Outer margin, with previous keeps 16px spacings */
-      }
+    > * {
+      margin: 8px; /* Outer margin, with previous keeps 16px spacings */
     }
   }
 }

@@ -17,6 +17,7 @@ import { PaginationComponent } from './shared/components/pagination/pagination.c
 import { ButtonComponent } from './shared/components/button/button.component';
 import { BookmarkFormComponent } from './shared/components/bookmarks/bookmark-form/bookmark-form.component';
 import { PageNotFoundComponent } from './shared/views/page-not-found/page-not-found.component';
+import { AddBookmarkComponent } from './shared/components/bookmarks/add-bookmark/add-bookmark.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PageNotFoundComponent } from './shared/views/page-not-found/page-not-fo
     PaginationComponent,
     ButtonComponent,
     BookmarkFormComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AddBookmarkComponent
   ],
   imports: [
     BrowserModule,

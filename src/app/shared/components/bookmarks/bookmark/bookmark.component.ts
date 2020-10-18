@@ -10,6 +10,12 @@ import { BookmarksService } from '@app/shared/services/bookmarks/bookmarks.servi
 export class BookmarkComponent {
 
   /**
+   * Used to show edit form or not.
+   * @type {boolean}
+   */
+  edit: boolean;
+
+  /**
    * Bookmark object to render.
    * @type {Bookmark}
    */
@@ -35,16 +41,18 @@ export class BookmarkComponent {
   }
 
   /**
-   * Method to update this bookmarks favourited state.
+   * Method to update and toggle this bookmarks favourited state.
    */
-  favourite() {
-    // Toggle state and update
+  toggleFavourite() {
     this.bookmark.favourited = !this.bookmark.favourited;
     this.bookmarksService_.update(this.bookmark.id, this.bookmark);
   }
 
-  edit() {
-    console.log('Edit!');
+  /**
+   * Method used to toggle edit state.
+   */
+  toggleEdit() {
+    this.edit = !this.edit;
   }
 
   /**
