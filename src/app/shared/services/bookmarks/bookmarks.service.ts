@@ -86,11 +86,13 @@ export class BookmarksService {
   /**
    * If a bookmark currently exists with a given id, bookmark is updated,
    *     and 'true' is returned, or 'null' otherwise if no item was found.
-   * @param {string}   id       ID of bookmark to find and update.
-   * @param {Bookmark} bookmark Bookmark to override existing bookmark with.
+   * @param {string}   id             ID of bookmark to find and update.
+   * @param {Bookmark} bookmark       Bookmark to override existing bookmark with.
+   * @param {boolean=} preventRefresh DEFAULTS to 'false', if set to true,
+   *     bookmarks behaviour subject won't be triggered.
    * @return {string}
    */
-  update(id: string, bookmark: Bookmark): boolean {
+  update(id: string, bookmark: Bookmark, preventRefresh = false): boolean {
     // Get bookmarks
     this.bookmarks_ = this.localStorageService_.getItem(this.cookieName);
 
@@ -102,7 +104,7 @@ export class BookmarksService {
       this.bookmarks_[index] = bookmark;
 
       // Save changes
-      this.save_();
+      this.save_(preventRefresh);
 
       // Return true for success
       return true;
@@ -140,13 +142,17 @@ export class BookmarksService {
 
   /**
    * Method used to save current bookmark array to localStorage.
+   * @param {boolean=} preventRefresh DEFAULTS to 'false', if set to true,
+   *     bookmarks behaviour subject won't be triggered.
    */
-  private save_(): void {
+  private save_(preventRefresh = false): void {
     // Save current bookmarks array to storage
     this.localStorageService_.save(this.cookieName, this.bookmarks_);
 
-    // Emit bookmarks has changed observable
-    this.bookmarksSubject_.next(this.bookmarks_);
+    // If not prevent refresh, emit  bookmarks has changed observable
+    if (!preventRefresh) {
+      this.bookmarksSubject_.next(this.bookmarks_);
+    }
   }
 
 }

@@ -72,7 +72,7 @@ export class BookmarkFormComponent implements OnInit {
       }
       // Else, update existing bookmark with new changes
       else {
-        this.bookmarksService_.update(this.bookmark.id, this.bookmark);
+        this.bookmarksService_.update(this.bookmark.id, this.bookmark, true);
       }
     }
     // TODO: Implement else error handling
