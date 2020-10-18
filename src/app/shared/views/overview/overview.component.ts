@@ -109,7 +109,7 @@ export class OverviewComponent implements OnDestroy {
     // Generate page size dummy data bookmarks
     for (let i = 0; i < this.itemsPerPage_; i++) {
       // Create dummy data bookmark
-      const bookmark = new Bookmark('bypaulo.', 'https://www.bypaulo.design/');
+      const bookmark = new Bookmark(`bypaulo.${i + 1}`, 'https://www.bypaulo.design/');
 
       // Randomize id
       bookmark.id = `${bookmark.id}${i}`;

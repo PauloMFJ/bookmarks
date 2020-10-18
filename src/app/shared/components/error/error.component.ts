@@ -54,7 +54,6 @@ export class ErrorComponent implements OnInit, OnDestroy {
    */
   private getErrors_(): void {
     const errors = this.control.errors;
-      console.log(errors);
     if (errors) {
       // If field is empty
       if (errors.required) {
