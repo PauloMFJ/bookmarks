@@ -1,7 +1,6 @@
 import { Component, Input, OnDestroy } from '@angular/core';
 import { Bookmark } from '@app/shared/models/bookmark.model';
 import { BookmarksService } from '@app/shared/services/bookmarks/bookmarks.service';
-import { plainToClass } from 'class-transformer';
 import { Subscription } from 'rxjs';
 import { PaginationService } from '@app/shared/services/pagination/pagination.service';
 import { Pagination } from '@app/shared/models/pagination.model';
@@ -39,8 +38,7 @@ export class BookmarksComponent implements OnDestroy {
         private bookmarksService_: BookmarksService,
         private paginationService_: PaginationService<Bookmark>) {
     this.subscription = this.bookmarksService_.getBookmarks().subscribe((bookmarks) => {
-      // Convert response to bookmark object list
-      this.bookmarks = plainToClass(Bookmark, bookmarks as object[]);
+      this.bookmarks = bookmarks;
       this.getPagedList(1);
     });
   }

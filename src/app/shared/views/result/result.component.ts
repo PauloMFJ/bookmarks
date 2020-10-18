@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BookmarksService } from '@app/shared/services/bookmarks/bookmarks.service';
 import { Bookmark } from '@app/shared/models/bookmark.model';
 import { Subscription } from 'rxjs';
-import { plainToClass } from 'class-transformer';
 
 @Component({
   selector: 'app-result',
@@ -35,15 +34,9 @@ export class ResultComponent implements OnDestroy {
       private bookmarksService_: BookmarksService,
       private router_: Router) {
     this.subscription = this.activatedRoute_.params.subscribe((params) => {
-      // Find bookmark based on current router id
-      const bookmark = this.bookmarksService_.find(params.id);
-
-      // If bookmark exists, convert response to bookmark object
-      if (bookmark) {
-        this.bookmark = plainToClass(Bookmark, bookmark as object);
-      }
-      // Else if bookmark is not set (ie. bookmark not found), route to page-not-found.
-      else {
+      // Find bookmark based on current router id, and set it, else if bookmark is
+      //     not set (ie. bookmark not found), route to page-not-found.
+      if (!(this.bookmark = this.bookmarksService_.find(params.id))) {
         this.router_.navigate(['/page-not-found']);
       }
     });

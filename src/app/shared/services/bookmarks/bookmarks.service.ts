@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { LocalStorageService } from '@app/shared/services/local-storage/local-storage.service';
 import { Bookmark } from '@app/shared/models/bookmark.model';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { plainToClass } from 'class-transformer';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +41,7 @@ export class BookmarksService {
    */
   getBookmarks(): Observable<Bookmark[]> {
     // Get bookmarks
-    this.bookmarks_ = this.localStorageService_.getItem(this.cookieName);
+    this.bookmarks_ = this.getBookmarks_();
 
     // Emit bookmarks has changed observable
     this.bookmarksSubject_.next(this.bookmarks_);
@@ -56,7 +57,7 @@ export class BookmarksService {
    */
   find(id: string): Bookmark {
     // Get bookmarks
-    this.bookmarks_ = this.localStorageService_.getItem(this.cookieName);
+    this.bookmarks_ = this.getBookmarks_();
 
     // Find and return bookmark, or 'undefined' otherwise
     return this.bookmarks_.find((bookmark) => bookmark.id === id);
@@ -69,7 +70,7 @@ export class BookmarksService {
    */
   add(bookmarks: Bookmark | Bookmark[]): void {
     // Get bookmarks
-    this.bookmarks_ = this.localStorageService_.getItem(this.cookieName);
+    this.bookmarks_ = this.getBookmarks_();
 
     // If input is an array, concat array to existing bookmarks
     if (Array.isArray(bookmarks)) {
@@ -95,13 +96,13 @@ export class BookmarksService {
    */
   update(id: string, bookmark: Bookmark, preventRefresh = false): boolean {
     // Get bookmarks
-    this.bookmarks_ = this.localStorageService_.getItem(this.cookieName);
+    this.bookmarks_ = this.getBookmarks_();
 
-    // Get index of bookmarks to update
+    // Get index of bookmark to update, returns '-1' if not found
     const index = this.bookmarks_.findIndex((bookmark) => bookmark.id === id);
 
     // If index exists, update bookmark
-    if (index) {
+    if (index !== -1) {
       this.bookmarks_[index] = bookmark;
 
       // Save changes
@@ -121,7 +122,7 @@ export class BookmarksService {
    */
   delete(id: string): void {
     // Get bookmarks
-    this.bookmarks_ = this.localStorageService_.getItem(this.cookieName);
+    this.bookmarks_ = this.getBookmarks_();
 
     // Filter out bookmark with given id
     this.bookmarks_ = this.bookmarks_.filter((bookmark) => bookmark.id !== id);
@@ -139,6 +140,18 @@ export class BookmarksService {
 
     // Emit resetted bookmarks array
     this.bookmarksSubject_.next(this.bookmarks_ = []);
+  }
+
+  /**
+   * Returns list of all saved bookmarks.
+   */
+  private getBookmarks_(): Bookmark[] {
+    // Get bookmarks
+    const bookmarks = this.localStorageService_.getItem(this.cookieName);
+
+    // Return bookmarks object list
+    // TODO: Implement custom parser without external library
+    return plainToClass(Bookmark, bookmarks as object[]);
   }
 
   /**
