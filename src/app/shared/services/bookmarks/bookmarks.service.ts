@@ -72,13 +72,13 @@ export class BookmarksService {
     // Get bookmarks
     this.bookmarks_ = this.getBookmarks_();
 
-    // If input is an array, concat array to existing bookmarks
+    // If input is an array, unshift bookmarks to start of existing bookmarks list
     if (Array.isArray(bookmarks)) {
-      this.bookmarks_.push(...bookmarks);
+      this.bookmarks_.unshift(...bookmarks);
 
-    // Else push indivudal bookmark to start of array
+    // Else unshift bookmark to start of array
     } else {
-      this.bookmarks_.push(bookmarks);
+      this.bookmarks_.unshift(bookmarks);
     }
 
     // Save changes
