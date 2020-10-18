@@ -4,6 +4,7 @@
   border-left: 12px solid $primary;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  padding: 12vh 0;
+  min-height: 100vh; /* 100vh used to always show border-left even with content smaller than page */
+  padding: 12vh 0; /* Responsive padding based on page height */
+  position: relative; /* Ensure any absolute/fixed elements position within page bounds */
 }

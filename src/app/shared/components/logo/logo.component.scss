@@ -4,7 +4,7 @@
   --margin: 64px;
   cursor: pointer;
   left: var(--margin);
-  position: absolute;
+  position: absolute; /* Position at top of page and keep in place */
   top: var(--margin);
 }
 
