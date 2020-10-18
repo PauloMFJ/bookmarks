@@ -45,7 +45,7 @@ export class BookmarkComponent {
    */
   toggleFavourite(): void {
     this.bookmark.favourited = !this.bookmark.favourited;
-    this.bookmarksService_.update(this.bookmark.id, this.bookmark);
+    this.bookmarksService_.update(this.bookmark.id, this.bookmark, true);
   }
 
   /**
