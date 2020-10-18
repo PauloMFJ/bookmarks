@@ -34,10 +34,10 @@ export class BookmarkComponent {
   constructor(private bookmarksService_: BookmarksService) { }
 
   /**
-   * Method used to navigate user to bookmark url.
+   * Method used to navigate user to bookmark url in new tab.
    */
   navigateToUrl() {
-    console.log(this.bookmark.url);
+    window.open(this.bookmark.url, '_blank');
   }
 
   /**
