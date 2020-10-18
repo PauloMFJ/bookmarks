@@ -22,7 +22,7 @@
   </div>
 
   <app-button type="clear"
-              [label]="bookmark ? 'Save' : 'Add'"
+              [label]="exists ? 'Save' : 'Add'"
               [disabled]="formGroup.invalid"
               [active]="!formGroup.invalid"
               (clicked)="submit()">
