@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BookmarksService } from '@app/shared/services/bookmarks/bookmarks.service';
 import { Bookmark } from '@app/shared/models/bookmark.model';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-overview',
@@ -8,6 +9,12 @@ import { Bookmark } from '@app/shared/models/bookmark.model';
   styleUrls: ['./overview.component.scss']
 })
 export class OverviewComponent {
+
+  /**
+   * Pagination size.
+   * @type {number}
+   */
+  private readonly itemsPerPage_ = environment.config.pagination.itemsPerPage;
 
   /**
    * If bookmarks are currently being filtered by favourites (true), or not (false).
@@ -37,12 +44,12 @@ export class OverviewComponent {
   }
 
   /**
-   * Method used to load in 10 bookmarks of dummy data.
+   * Method used to load in x dummy data bookmarks of page size.
    */
   loadDummyData(): void {
     const bookmarks = [];
-    // Generate 10 dummy data bookmarks
-    for (let i = 0; i < 10; i++) {
+    // Generate page size dummy data bookmarks
+    for (let i = 0; i < this.itemsPerPage_; i++) {
       // Create dummy data bookmark
       const bookmark = new Bookmark('bypaulo.', 'https://www.bypaulo.design/');
 
