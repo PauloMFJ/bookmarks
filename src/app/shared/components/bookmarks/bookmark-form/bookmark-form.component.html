@@ -1,4 +1,5 @@
-<form [formGroup]="formGroup">
+<form *ngIf="formGroup"
+      [formGroup]="formGroup">
     <div class="field">
       <!-- Error message -->
       <app-error [control]="formGroup.controls['name']"></app-error>
@@ -25,6 +26,7 @@
              (keydown.enter)="submit($event)">
     </div>
 
+    <!-- Submit -->
     <app-button type="gray"
                 [label]="exists ? 'Save' : 'Add'"
                 [disabled]="formGroup.invalid"

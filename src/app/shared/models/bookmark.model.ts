@@ -29,11 +29,12 @@ export class Bookmark {
      */
     favourited: boolean;
 
+
     /**
-     * Text regex used to prevent empty whitespaces strings.
-     * @param {RegExp}
+     * Pattern regex string used to prevent empty whitespaces strings.
+     * @private {String}
      */
-    private hasTextRegex = new RegExp(/.*\S.*/);
+    private readonly pattern_ = new RegExp(/.*\S.*/);
 
     /**
      * Contructor used to create new Bookmark object.
@@ -51,15 +52,30 @@ export class Bookmark {
     }
 
     /**
-     * Method used to create a new empty formGroup object wih validation.
+     * Returns a formGroup object based on this bookmark wih validation.
      * @param {FormBuilder} formBuilder FormBuilder object used to generate form.
-     * @return {number} FormGroup object.
+     * @return {number}
      */
     getForm(formBuilder: FormBuilder) {
       return formBuilder.group({
-        name: [this.name, [Validators.required, Validators.maxLength(255), Validators.pattern(this.hasTextRegex)]],
-        url: [this.url, [Validators.required, Validators.pattern(this.hasTextRegex)]],
-        favourited: [this.favourited],
+        name: [
+          this.name, [
+            Validators.required,
+            // TODO: Fix validator erroring
+            // Validators.pattern(this.pattern_),
+            Validators.maxLength(255),
+          ]
+        ],
+        url: [
+          this.url, [
+            Validators.required,
+            // TODO: Fix validator erroring
+            // Validators.pattern(this.pattern_),
+          ]
+        ],
+        favourited: [
+          this.favourited
+        ],
       });
     }
 
