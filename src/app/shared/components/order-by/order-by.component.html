@@ -27,17 +27,17 @@
 
     <app-button type="clear"
                 [fullWidth]="true"
-                label="Alphabetically (Z to A)"
-                [active]="orderBy === 'name'"
-                (clicked)="setOrderBy('name', 'Alphabetically (Z to A)')"
+                label="Alphabetically (A to Z)"
+                [active]="orderBy === '-name'"
+                (clicked)="setOrderBy('-name', 'Alphabetically (A to Z)')"
                 [tabIndex]="show ? '0' : '-1'">
     </app-button>
 
     <app-button type="clear"
                 [fullWidth]="true"
-                label="Alphabetically (A to Z)"
-                [active]="orderBy === '-name'"
-                (clicked)="setOrderBy('-name', 'Alphabetically (A to Z)')"
+                label="Alphabetically (Z to A)"
+                [active]="orderBy === 'name'"
+                (clicked)="setOrderBy('name', 'Alphabetically (Z to A)')"
                 [tabIndex]="show ? '0' : '-1'">
     </app-button>
   </div>
