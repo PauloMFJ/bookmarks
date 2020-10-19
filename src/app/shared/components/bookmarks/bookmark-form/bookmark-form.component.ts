@@ -24,6 +24,12 @@ export class BookmarkFormComponent implements OnInit {
   exists = false;
 
   /**
+   * Used to prevent the user from submitting multiple enteries during submit().
+   * @type {string}
+   */
+  waitingForResponse = false;
+
+  /**
    * Bookmark object used.
    * @type {Bookmark}
    */
@@ -68,6 +74,9 @@ export class BookmarkFormComponent implements OnInit {
    *     errors based on validation.
    */
   submit(): void {
+    // Prevent user from submitting again, until this method completes
+    this.waitingForResponse = true;
+
     // Create new bookmark and pass formGroup into it (Dont set current one, till it passes)
     const bookmark = new Bookmark();
     bookmark.from(this.formGroup);
@@ -116,14 +125,22 @@ export class BookmarkFormComponent implements OnInit {
             }
           }
 
-          // Else log error
+          // Else url log error
           else {
             this.logUrlError_('url');
           }
+
+          // Fetch finished, so update state
+          this.waitingForResponse = false;
         })
         .catch((error) => {
           this.logUrlError_('url');
+
+          // Form failed, so update state
+          this.waitingForResponse = false;
         });
+    } else {
+      this.waitingForResponse = false;
     }
   }
 

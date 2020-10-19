@@ -26,7 +26,7 @@
     <!-- Submit -->
     <app-button type="gray"
                 [label]="exists ? 'Save' : 'Add'"
-                [disabled]="formGroup.invalid"
+                [disabled]="formGroup.invalid || waitingForResponse"
                 [active]="!formGroup.invalid"
                 [stopPropagation]="true"
                 (clicked)="submit()">
