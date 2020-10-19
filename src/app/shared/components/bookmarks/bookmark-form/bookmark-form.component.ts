@@ -72,8 +72,6 @@ export class BookmarkFormComponent implements OnInit {
     const bookmark = new Bookmark();
     bookmark.from(this.formGroup);
 
-    console.log(bookmark);
-
     // Else, if name string only has whitespaces, show error
     if (!bookmark.name.trim()) {
       this.logWhitespacesError_('name');
