@@ -29,13 +29,6 @@ export class Bookmark {
      */
     favourited: boolean;
 
-
-    /**
-     * Pattern regex string used to prevent empty whitespaces strings.
-     * @private {String}
-     */
-    private readonly pattern_ = new RegExp(/.*\S.*/);
-
     /**
      * Contructor used to create new Bookmark object.
      * @param {string=}  name       A custom url name.
@@ -61,16 +54,12 @@ export class Bookmark {
         name: [
           this.name, [
             Validators.required,
-            // TODO: Fix validator erroring
-            // Validators.pattern(this.pattern_),
             Validators.maxLength(255),
           ]
         ],
         url: [
           this.url, [
             Validators.required,
-            // TODO: Fix validator erroring
-            // Validators.pattern(this.pattern_),
           ]
         ],
         favourited: [

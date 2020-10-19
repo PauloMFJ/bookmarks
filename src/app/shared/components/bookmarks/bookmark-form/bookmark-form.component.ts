@@ -67,10 +67,21 @@ export class BookmarkFormComponent implements OnInit {
    * Method used to submit and save new bookmark.
    */
   submit(): void {
-    if (this.formGroup.valid) {
-      this.bookmark.from(this.formGroup);
+    this.bookmark.from(this.formGroup);
 
-      // Get url using no-cors mode
+    // Check if url already exists and allow, else error
+    if (this.bookmarksService_.exists(this.bookmark.url)) {
+      this.formGroup.controls['url'].setErrors({ 'alreadyExists': true });
+    }
+
+    // Else, if string is only whitespaces, show error
+    else if (!this.bookmark.name.trim()) {
+      this.formGroup.controls['name'].setErrors({'whitespaces': true });
+    }
+
+
+    // If form is still valid, check if url exists
+    if (this.formGroup.valid) {
       fetch(this.bookmark.url, {
           headers: {
             'Content-Type': 'application/json',
@@ -78,8 +89,9 @@ export class BookmarkFormComponent implements OnInit {
           method: 'POST',
           mode: 'no-cors'
         }).then((response) => {
-          // If success
+          // If response status was a success
           if (response.status === 200 || response.status === 0) {
+
             // Add bookmark, and route to result page if bookmark didn't exist beforehand
             if (!this.exists) {
               this.bookmarksService_.add(this.bookmark);

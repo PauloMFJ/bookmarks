@@ -61,9 +61,9 @@ export class ErrorComponent implements OnInit, OnDestroy {
         this.error = 'Field is required.';
       }
 
-      // If invalid pattern
-      else if (errors.pattern) {
-        this.error = `Field must contain atleast one character.`;
+      // If only whitespaces
+      else if (errors.whitespaces) {
+        this.error = `Field requires atleast 1 character.`;
       }
 
       // If field length is greater than maxLength
@@ -76,7 +76,10 @@ export class ErrorComponent implements OnInit, OnDestroy {
         this.error = `Entered URL could not be retrieved. Please enter a valid URL such as '<b>https://www.bypaulo.design/</b>'.`;
       }
 
-      // TODO: Has room to implement further errors...
+      // If url already exists
+      else if (errors.alreadyExists) {
+        this.error = `Entered URL already exists! Please enter a new url.`;
+      }
 
       // If no error, remove error
       else {

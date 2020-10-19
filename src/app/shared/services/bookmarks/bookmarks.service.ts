@@ -51,6 +51,19 @@ export class BookmarksService {
   }
 
   /**
+   * Returns 'true' if url already exists, or 'false' otherwise.
+   * @param {string} url Url to search for.
+   * @return {boolean}
+   */
+  exists(url: string): Bookmark {
+    // Get bookmarks
+    this.bookmarks_ = this.getBookmarks_();
+
+    // Find url
+    return this.bookmarks_.find((bookmark) => bookmark.url === url);
+  }
+
+  /**
    * Returns bookmark of corresponding ID, and 'undefined' otherwise.
    * @param {string} id ID of bookmark to find and return.
    * @return {Bookmark}
