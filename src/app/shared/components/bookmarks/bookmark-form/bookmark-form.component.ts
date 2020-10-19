@@ -68,59 +68,89 @@ export class BookmarkFormComponent implements OnInit {
    *     errors based on validation.
    */
   submit(): void {
-    this.bookmark.from(this.formGroup);
+    // Create new bookmark and pass formGroup into it (Dont set current one, till it passes)
+    const bookmark = new Bookmark();
+    bookmark.from(this.formGroup);
+
+    console.log(bookmark);
 
     // Else, if name string only has whitespaces, show error
-    if (!this.bookmark.name.trim()) {
-      this.formGroup.controls['name'].setErrors({'whitespaces': true });
+    if (!bookmark.name.trim()) {
+      this.logWhitespacesError_('name');
     }
 
-    // If url already exists in app, and not editing existing url with same form url, show error
-    const bookmark = this.bookmarksService_.exists(this.bookmark.url);
-    if (!this.exists && bookmark && bookmark.url === this.bookmark.url) {
-      this.formGroup.controls['url'].setErrors({ 'alreadyExists': true });
+    // Check if url already exists
+    const existingBookmark = this.bookmarksService_.exists(bookmark.url);
+    if (existingBookmark) {
+
+      // Log error if not editing form with same url as match
+      if ((this.exists && this.bookmark.url !== existingBookmark.url) ||
+
+          // Or, if new form, and existing url is same as form url, show matching url error
+          (!this.exists && bookmark.url === existingBookmark.url)) {
+        this.logAlreadyExistsError_('url');
+      }
     }
 
-    // If form is still valid, check if url exists
+    // If form is still valid, check if url exists (post to url and then handle response)
     if (this.formGroup.valid) {
-      fetch(this.bookmark.url, {
+      fetch(bookmark.url, {
           headers: {
             'Content-Type': 'application/json',
           },
           method: 'POST',
           mode: 'no-cors'
         }).then((response) => {
+
           // If response status was a success
           if (response.status === 200 || response.status === 0) {
 
             // Add bookmark, and route to result page if bookmark didn't exist beforehand
             if (!this.exists) {
-              this.bookmarksService_.add(this.bookmark);
-              this.router_.navigate(['/result', this.bookmark.id]);
+              this.bookmarksService_.add(bookmark);
+              this.router_.navigate(['/result', bookmark.id]);
             }
 
             // Else, update existing bookmark with new changes
             else {
+              this.bookmark.from(this.formGroup);
               this.bookmarksService_.update(this.bookmark.id, this.bookmark, true);
             }
           }
 
           // Else log error
           else {
-            this.logUrlError();
+            this.private logUrlError_('url');
           }
         })
         .catch((error) => {
-          this.logUrlError();
+          this.private logUrlError_('url');
         });
     }
   }
 
   /**
-   * Method used to log a url error to form.
+   * Method used to log a already exists error to form.
+   * @param {string} control Control to show error on.
    */
-  logUrlError() {
-    this.formGroup.controls['url'].setErrors({ 'invalidurl': true });
+  private logWhitespacesError_(control: string) {
+      this.formGroup.controls[control].setErrors({ whitespaces: true });
+  }
+
+  /**
+   * Method used to log a already exists error to form.
+   * @param {string} control Control to show error on.
+   */
+  private logAlreadyExistsError_(control: string) {
+      this.formGroup.controls[control].setErrors({ alreadyExists: true });
+  }
+
+  /**
+   * Method used to log a url error to form.
+   * @param {string} control Control to show error on.
+   */
+  private logUrlError_(control: string) {
+    this.formGroup.controls[control].setErrors({ invalidurl: true });
   }
 
 }
