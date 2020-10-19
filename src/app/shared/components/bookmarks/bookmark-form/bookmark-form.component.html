@@ -1,5 +1,4 @@
-<form *ngIf="formGroup"
-      [formGroup]="formGroup">
+<form [formGroup]="formGroup">
     <div class="field">
       <!-- Error message -->
       <app-error [control]="formGroup.controls['name']"></app-error>
