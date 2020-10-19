@@ -30,6 +30,12 @@ export class Bookmark {
     favourited: boolean;
 
     /**
+     * Text regex used to prevent empty whitespaces strings.
+     * @param {RegExp}
+     */
+    private hasTextRegex = new RegExp(/.*\S.*/);
+
+    /**
      * Contructor used to create new Bookmark object.
      * @param {string=}  name       A custom url name.
      * @param {string=}  url        A destination url of bookmark.
@@ -51,8 +57,8 @@ export class Bookmark {
      */
     getForm(formBuilder: FormBuilder) {
       return formBuilder.group({
-        name: [this.name, [Validators.required, Validators.maxLength(255)]],
-        url: [this.url, [Validators.required]],
+        name: [this.name, [Validators.required, Validators.maxLength(255), Validators.pattern(this.hasTextRegex)]],
+        url: [this.url, [Validators.required, Validators.pattern(this.hasTextRegex)]],
         favourited: [this.favourited],
       });
     }

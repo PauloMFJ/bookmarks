@@ -54,16 +54,23 @@ export class ErrorComponent implements OnInit, OnDestroy {
    */
   private getErrors_(): void {
     const errors = this.control.errors;
+    console.log(errors);
     if (errors) {
       // If field is empty
       if (errors.required) {
         this.error = 'Field is required.';
       }
 
+      // If invalid pattern
+      else if (errors.pattern) {
+        this.error = `Field must contain atleast one character.`;
+      }
+
       // If field length is greater than maxLength
       else if (errors.maxlength) {
         this.error = `The field can't contain more than ${errors.maxlength.requiredLength} characters.`;
       }
+
       // If invalid url
       else if (errors.invalidurl) {
         this.error = `Entered URL could not be retrieved. Please enter a valid URL such as '<b>https://www.bypaulo.design/</b>'.`;
