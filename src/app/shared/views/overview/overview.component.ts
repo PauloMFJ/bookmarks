@@ -106,7 +106,7 @@ export class OverviewComponent implements OnDestroy {
     if (this.orderBy === 'reverse') {
       bookmarks.reverse();
     } else if (this.orderBy === 'name') {
-      bookmarks.sort((a, b) => a.name > b.name ? 1 : -1);
+      bookmarks.sort((a, b) => a.name > b.name ? -1 : 1);
     }
 
     // Get pagination
