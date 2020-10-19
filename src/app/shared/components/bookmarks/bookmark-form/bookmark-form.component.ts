@@ -120,11 +120,11 @@ export class BookmarkFormComponent implements OnInit {
 
           // Else log error
           else {
-            this.private logUrlError_('url');
+            this.logUrlError_('url');
           }
         })
         .catch((error) => {
-          this.private logUrlError_('url');
+          this.logUrlError_('url');
         });
     }
   }
