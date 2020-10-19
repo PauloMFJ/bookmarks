@@ -1,4 +1,5 @@
 @import '~src/assets/styles/variables';
+@import '~src/assets/styles/media-queries';
 
 :host {
   display: block;
@@ -38,3 +39,8 @@
   }
 }
 
+@include media-breakpoint-below(xs) {
+  .order-by-container label {
+    display: none; /* Hide label on xs screens */
+  }
+}

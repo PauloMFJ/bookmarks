@@ -3,37 +3,40 @@
 
   <!-- Controls container -->
   <div id="controls-container">
-    <!-- Search bar -->
-    <app-search-bar placeholder="Search Bookmarks..."
-                    (searchChanged)="onSearchChanged($event)">
-    </app-search-bar>
+    <div class="row">
+      <!-- Load dummy data -->
+      <app-button type="gradient"
+                  label="Load Dummy Page"
+                  (clicked)="loadDummyData()">
+      </app-button>
 
-    <!-- Order by -->
-    <app-order-by (orderByChanged)="onOrderByChanged($event)"></app-order-by>
+      <!-- Delete all -->
+      <app-button type="danger"
+                  label="Delete All"
+                  (clicked)="deleteAll()">
+      </app-button>
+    </div>
 
-    <!-- Filter by favourites -->
-    <!-- TODO: Extract favourite icon into its own reusable component -->
-    <app-button type="light"
-                [active]="filterByFavourites"
-                ariaLabel="Filter by Favourites"
-                (clicked)="toggleFavourites()">
-      <div content>
-        <svg-icon src="assets/images/favourite.svg"
-                  class="display-flex"></svg-icon>
-      </div>
-    </app-button>
+    <div class="row">
+      <!-- Search bar -->
+      <app-search-bar placeholder="Search Bookmarks..."
+                      (searchChanged)="onSearchChanged($event)">
+      </app-search-bar>
 
-    <!-- Load dummy data -->
-    <app-button type="gradient"
-                label="Load Dummy Page"
-                (clicked)="loadDummyData()">
-    </app-button>
-
-    <!-- Delete all -->
-    <app-button type="danger"
-                label="Delete All"
-                (clicked)="deleteAll()">
-    </app-button>
+      <!-- Order by -->
+      <app-order-by (orderByChanged)="onOrderByChanged($event)"></app-order-by>
+      <!-- Filter by favourites -->
+      <!-- TODO: Extract favourite icon into its own reusable component -->
+      <app-button type="light"
+                  [active]="filterByFavourites"
+                  ariaLabel="Filter by Favourites"
+                  (clicked)="toggleFavourites()">
+        <div content>
+          <svg-icon src="assets/images/favourite.svg"
+                    class="display-flex"></svg-icon>
+        </div>
+      </app-button>
+    </div>
   </div>
 
   <!-- Bookmarks form/list container -->
