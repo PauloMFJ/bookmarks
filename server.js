@@ -3,12 +3,6 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-// Handle robots.txt
-app.get('/robots.txt', function (req, res) {
-    res.type('text/plain');
-    res.send("User-agent: *\nDisallow: /");
-});
-
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/bookmarks'));
 
