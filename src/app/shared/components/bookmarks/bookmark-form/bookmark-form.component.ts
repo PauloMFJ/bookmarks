@@ -71,8 +71,13 @@ export class BookmarkFormComponent implements OnInit {
       this.bookmark.from(this.formGroup);
 
       // Get url using no-cors mode
-      fetch(this.bookmark.url, { mode: 'no-cors' })
-        .then((response) => {
+      fetch(this.bookmark.url, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          method: 'POST',
+          mode: 'no-cors'
+        }).then((response) => {
           // If success
           if (response.status === 200 || response.status === 0) {
             // Add bookmark, and route to result page if bookmark didn't exist beforehand
@@ -89,11 +94,20 @@ export class BookmarkFormComponent implements OnInit {
 
           // Else log error
           else {
-            this.formGroup.controls['url'].setErrors({ 'invalidurl': true });
+            this.logUrlError();
           }
         })
-        .catch((error) => console.log('Url Fetch Error: ', error));
+        .catch((error) => {
+          this.logUrlError();
+        });
     }
+  }
+
+  /**
+   * Method used to log a url error to form.
+   */
+  logUrlError() {
+    this.formGroup.controls['url'].setErrors({ 'invalidurl': true });
   }
 
 }
