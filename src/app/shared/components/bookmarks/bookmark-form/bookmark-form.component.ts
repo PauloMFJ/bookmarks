@@ -64,21 +64,21 @@ export class BookmarkFormComponent implements OnInit {
   }
 
   /**
-   * Method used to submit and save new bookmark.
+   * Method used to submit and save new bookmark if form is valid, else sets form control
+   *     errors based on validation.
    */
   submit(): void {
     this.bookmark.from(this.formGroup);
 
-    // Check if url already exists and allow, else error
-    if (this.bookmarksService_.exists(this.bookmark.url)) {
-      this.formGroup.controls['url'].setErrors({ 'alreadyExists': true });
-    }
-
-    // Else, if string is only whitespaces, show error
-    else if (!this.bookmark.name.trim()) {
+    // Else, if name string only has whitespaces, show error
+    if (!this.bookmark.name.trim()) {
       this.formGroup.controls['name'].setErrors({'whitespaces': true });
     }
 
+    // If url already exists in app, show error
+    if (this.bookmarksService_.exists(this.bookmark.url)) {
+      this.formGroup.controls['url'].setErrors({ 'alreadyExists': true });
+    }
 
     // If form is still valid, check if url exists
     if (this.formGroup.valid) {
