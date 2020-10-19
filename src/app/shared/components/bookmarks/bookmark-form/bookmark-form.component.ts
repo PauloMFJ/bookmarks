@@ -75,8 +75,9 @@ export class BookmarkFormComponent implements OnInit {
       this.formGroup.controls['name'].setErrors({'whitespaces': true });
     }
 
-    // If url already exists in app, show error
-    if (this.bookmarksService_.exists(this.bookmark.url)) {
+    // If url already exists in app, and not editing existing url with same form url, show error
+    const bookmark = this.bookmarksService_.exists(this.bookmark.url);
+    if (!this.exists && bookmark && bookmark.url === this.bookmark.url) {
       this.formGroup.controls['url'].setErrors({ 'alreadyExists': true });
     }
 

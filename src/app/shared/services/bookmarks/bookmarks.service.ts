@@ -51,8 +51,8 @@ export class BookmarksService {
   }
 
   /**
-   * Returns 'true' if url already exists, or 'false' otherwise.
-   * @param {string} url Url to search for.
+   * Returns bookmark of corresponding url, and 'undefined' otherwise.
+   * @param {string} url URL to find and return.
    * @return {boolean}
    */
   exists(url: string): Bookmark {
