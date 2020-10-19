@@ -9,8 +9,7 @@
              formControlName="name"
              aria-label="Website Name"
              placeholder="Website Name..."
-             autocomplete="off"
-             (keydown.enter)="submit($event)">
+             autocomplete="off">
     </div>
 
     <div class="field">
@@ -22,8 +21,7 @@
              formControlName="url"
              aria-label="URL"
              placeholder="URL..."
-             autocomplete="off"
-             (keydown.enter)="submit($event)">
+             autocomplete="off">
     </div>
 
     <!-- Submit -->
@@ -32,6 +30,6 @@
                 [disabled]="formGroup.invalid"
                 [active]="!formGroup.invalid"
                 [stopPropagation]="true"
-                (clicked)="submit($event)">
+                (clicked)="submit()">
     </app-button>
 </form>

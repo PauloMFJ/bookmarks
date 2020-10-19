@@ -65,14 +65,8 @@ export class BookmarkFormComponent implements OnInit {
 
   /**
    * Method used to submit and save new bookmark.
-   * @param {any=} event Used to stopPropagation.
    */
-  submit(event?: any): void {
-    // If event, prevent events from bubbling
-    if (event) {
-      event.stopPropagation();
-    }
-
+  submit(): void {
     if (this.formGroup.valid) {
       this.bookmark.from(this.formGroup);
 
