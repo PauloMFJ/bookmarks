@@ -104,11 +104,16 @@ export class OverviewComponent implements OnDestroy {
     // Order list
     // TODO: Improve how this is implemented to support both reverse and name sort at same time
     if (this.orderBy === 'reverse') {
-      // TODO: Add date to bookmark and sort by date
+      // TODO: Add date to bookmark and sort on date
       bookmarks.reverse();
     } else if (this.orderBy === 'name') {
-      bookmarks.sort((a, b) => a.name > b.name ? -1 : 1);
+      // Sory by Name
+      bookmarks.sort((a, b) => a.name[1] < b.name[1] ? -1 : a.name[1] > b.name[1] ? 1 : 0);
+    } else if (this.orderBy === '-name') {
+      // Reverse sort by name
+      bookmarks.sort((a, b) => a.name[1] > b.name[1] ? -1 : a.name[1] < b.name[1] ? 1 : 0);
     }
+
 
     // Get pagination
     this.pagination = this.paginationService_.getPagedList(bookmarks, page);
