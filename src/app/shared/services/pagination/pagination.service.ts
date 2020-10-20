@@ -20,7 +20,7 @@ export class PaginationService<T> {
    *     pagedList, and paginatorNumbering.
    * @param  {Array<T>}   totalItems  Full list of items to paginate.
    * @param  {number}     currentPage Current page to show.
-   * @return {Pagination}
+   * @return {Pagination<T>}
    */
   getPagedList(totalItems: Array<T>, currentPage: number): Pagination<T> {
     // Calculate total pages
