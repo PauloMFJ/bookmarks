@@ -23,6 +23,7 @@
       position: absolute;
       right: 0;
       top: $input-size + 8px; /* Position 8px below button */
+      z-index: 1; /* Appear above content */
 
       /* Hidden state, used to animate dropdown in */
       &:not(.show) {

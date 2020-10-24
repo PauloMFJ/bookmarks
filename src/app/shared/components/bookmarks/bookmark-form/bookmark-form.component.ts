@@ -86,6 +86,9 @@ export class BookmarkFormComponent implements OnInit {
       this.logWhitespacesError_('name');
     }
 
+    // Convert possible url without https to https, or ignore
+    bookmark.url = this.getLinkHref_(bookmark.url);
+
     // Check if url already exists
     const existingBookmark = this.bookmarksService_.exists(bookmark.url);
     if (existingBookmark) {
@@ -166,6 +169,15 @@ export class BookmarkFormComponent implements OnInit {
    */
   private logUrlError_(control: string) {
     this.formGroup.controls[control].setErrors({ invalidurl: true });
+  }
+
+  /**
+   * Returns url string starting with https if it starts with anything apart from 'http'.
+   * @param {string} url URL to convert to link.
+   * @return {string}
+   */
+  private getLinkHref_(url: string) {
+    return (url.startsWith('http')) ? url : `https://${url}`;
   }
 
 }
