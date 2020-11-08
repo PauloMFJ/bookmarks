@@ -6,6 +6,12 @@
   left: var(--margin);
   position: absolute; /* Position at top of page and keep in place */
   top: var(--margin);
+
+  &,
+  svg {
+    max-height: 40px;
+    height: 100%;
+  }
 }
 
 @include media-breakpoint-below(md) {
